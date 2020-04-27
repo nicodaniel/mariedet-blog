@@ -1,72 +1,95 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import {graphql} from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import {SocialFeed} from "../components/social-feed/social-feed"
+import {CarouselViewer} from "../components/carousel/carousel-viewer";
+import "./index.scss";
+import {ArticleTopic} from "../components/article-preview/article-topic-section";
+const {TOPICS} = require(`../../constants`);
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+const BlogIndex = ({data, location}) => {
+    const postsByTopics = data.allMarkdownRemark.group;
 
-  return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
-    </Layout>
-  )
-}
+    return (
+        <Layout location={location}>
+            <SEO title="Home"/>
+
+            {/*carousel*/}
+            <CarouselViewer
+                images={data.carouselPreview.edges.filter(edge => edge.node.frontmatter.preview.childImageSharp.fixed).map(edge => edge.node.frontmatter.preview.childImageSharp.fixed)}/>
+
+            {/*article section*/}
+            {postsByTopics.sort((group, group2) => {
+                const topicName = group.edges[0].node.frontmatter.topic;
+                const topicName2 = group2.edges[0].node.frontmatter.topic;
+                return TOPICS.findIndex(topic => topic.topicName === topicName) - TOPICS.findIndex(topic => topic.topicName === topicName2);
+            }).map((group, index) => {
+                const topicName = group.edges[0].node.frontmatter.topic;
+                return <ArticleTopic topic={topicName} posts={group.edges} showLink={true} />
+            })}
+
+            {/*social section*/}
+            <SocialFeed instagram={data.instagram}/>
+
+        </Layout>
+    )
+};
 
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
+  query homePageQuery {
+    carouselPreview: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC}, limit: 3){
+        edges {
+          node {
+            frontmatter {
+              preview{
+                childImageSharp {
+                  fixed(width: 800, height: 400) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
+    instagram: allFile(filter: {absolutePath: { regex: "/(inst)[1-9]*/" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 185, maxHeight: 185) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
+      group(field: frontmatter___topic, limit: 3){
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              date(formatString: "MMMM DD, YYYY")
+              title
+              description
+              topic
+              preview {
+                childImageSharp {
+                  fixed(width: 300, height: 200) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
   }
-`
+`;

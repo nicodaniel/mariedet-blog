@@ -1,18 +1,18 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+import "./nav-article-link.scss";
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -43,37 +43,37 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <footer>
-          <Bio />
-        </footer>
       </article>
-
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+        <nav>
+            <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: '0'
+            }} className="nav-previous-after">
+                {previous && (
+                    <Link to={previous.fields.slug} rel="prev" className="link">
+                        ←
+                        <div className="nav-more-info">
+                            {previous.frontmatter.title}
+                        </div>
+                    </Link>
+                )}
+            </div>
+            <div style={{
+                position: 'absolute',
+                top: '50%',
+                right: '0'
+            }} className="nav-previous-after">
+                {next && (
+                    <Link to={next.fields.slug} rel="next" className="link">
+                        →
+                        <div className="nav-more-info">
+                            {next.frontmatter.title}
+                        </div>
+                    </Link>
+                )}
+            </div>
+        </nav>
     </Layout>
   )
 }
@@ -95,6 +95,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        topic
       }
     }
   }

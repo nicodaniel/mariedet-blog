@@ -1,70 +1,39 @@
 import React from "react"
-import { Link } from "gatsby"
+import { rhythm } from "../utils/typography"
+import { ToolbarHeader } from "./header/toolbar-header"
+import "../pages/index.scss"
+const {TOPICS} = require(`../../constants`);
 
-import { rhythm, scale } from "../utils/typography"
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
-
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
+/**
+ * Layout of the application, each page follow this structure
+ * @param {Location} location - where am I
+ * @param children
+ * @return {DOMElement} the structure of a page
+ * @constructor
+ */
+const Layout = ({ location, children }) => {
   return (
     <div
       style={{
         marginLeft: `auto`,
         marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        maxWidth: rhythm(40),
+        padding: `0px 38px 0px 38px`,
       }}
     >
-      <header>{header}</header>
+      <header className="app-header">
+          <ToolbarHeader displayToolbarName={true} topics={TOPICS} displaySocialIcons={true}  />
+      </header>
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      <footer className="app-footer">
+          <ToolbarHeader topics={[{topicName:'about', to: '/topic/about'}, {topicName:'contact', to: '/topic/contact'}]} centered={true} displaySocialIcons={true} />
+          <div className="powered-by-footer">
+              Powered by <a href="https://github.com/nicodaniel">ndaniel</a>
+          </div>
       </footer>
     </div>
   )
-}
+};
 
 export default Layout

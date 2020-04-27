@@ -1,0 +1,46 @@
+@import "../../helpers/variables";
+
+.header-nav{
+    font-family: "Arial";
+    height: 52px;
+    font-weight: 700;
+    font-size: 11px;
+    text-align: right;
+    display: flex;
+
+    .blog-name{
+        float: left;
+        font-size: 18px;
+    }
+
+    .header-nav-container{
+        align-self: center;
+        flex-grow: 1;
+    }
+
+    a{
+        transition:color 0.3s ease-out;
+        &:hover{
+            color: $grey;
+        }
+        align-self: center;
+        margin-right : 15px;
+        font-style: normal;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        text-decoration: none;
+        box-shadow: none;
+        color: black;
+    }
+
+    .social-icons svg.MuiSvgIcon-root {
+        font-size: 17px;
+        position: relative;
+        top: 4px;
+
+        &:hover{
+            color: $grey;
+        }
+    }
+
+}

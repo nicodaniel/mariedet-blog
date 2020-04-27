@@ -1,0 +1,59 @@
+@import "../helpers/variables";
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+/* CSS class HELPERS */
+.centered{
+    text-align: center;
+}
+
+.capital-letters{
+    text-transform: uppercase;
+}
+
+a.link{
+    transition:color 0.3s ease-out;
+    cursor: pointer;
+    color: black;
+
+    &:hover{
+        color: $grey;
+    }
+
+    &.box-shadow {
+        //box-shadow: inherit;
+        &:hover{
+            box-shadow: 0 1px 0 0 currentColor;
+        }
+    }
+
+    &.no-text-decoration{
+        text-decoration: none;
+    }
+}
+
+/* application CSS */
+header.app-header{
+    padding: 50px 0px 50px 0px;
+}
+
+footer.app-footer{
+    height: 320px;
+
+    .header-nav{
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+
+    .powered-by-footer{
+        text-align: center;
+        color: $footer-grey;
+        a{
+            color: $footer-grey;
+        }
+    }
+
+    .social-icons{
+        display: block;
+        margin-top: 50px;
+    }
+}
