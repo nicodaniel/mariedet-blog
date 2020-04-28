@@ -53,17 +53,16 @@ exports.createPages = async ({graphql, actions}) => {
     // Create blog posts pages.
     const posts = result.data.allMarkdownRemark.edges;
     posts.forEach((post, index) => {
-        const previous = index === posts.length - 1 ? null : posts[index + 1].node
-        const next = index === 0 ? null : posts[index - 1].node
+        const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+        const next = index === 0 ? null : posts[index - 1].node;
         console.log("createPage:", post.node.fields.slug);
-        console.log("post: ", post);
-        console.log("next: ", next);
         createPage({
             path: post.node.fields.slug,
             component: blogPost,
             context: {
                 slug: post.node.fields.slug,
-                previousImg:"",
+                nextSlug: next && next.fields.slug?next.fields.slug:"",
+                previousSlug: previous && previous.fields.slug?previous.fields.slug:"",
                 previous,
                 next,
             },
