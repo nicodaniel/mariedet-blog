@@ -2,7 +2,7 @@
 title: My Second Post2222!
 date: "2015-05-06T23:46:37.121Z"
 description: Write a Compelling Blog Post Title Here.
-topic: cycling2
+topic: cycling
 preview: "post2.jpg"
 previewName: "post2"
 ---
