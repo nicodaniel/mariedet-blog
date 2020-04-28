@@ -36,6 +36,13 @@ export const topicQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            preview {
+              childImageSharp {
+                fixed(width: 300, height: 200) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }

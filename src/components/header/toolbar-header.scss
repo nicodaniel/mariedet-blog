@@ -19,7 +19,7 @@
     }
 
     a{
-        transition:color 0.3s ease-out;
+        transition: $transition-color;
         &:hover{
             color: $grey;
         }

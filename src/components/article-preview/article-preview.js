@@ -25,7 +25,7 @@ export class ArticlePreview extends React.Component {
                     <header style={{fontFamily : 'baskerville-urw'}}>
                         <small style={{color: 'grey', fontFamily : 'baskerville', fontSize: 15, fontWeight: 400}}>{this.props.date}</small>
                     </header>
-                    <section style={{color: 'black', fontFamily : 'baskerville', fontSize: 20, lineHeight: '24px', fontWeight: 400, letterSpacing: 0.18}}>
+                    <section style={{color: 'black'}} className="article-title">
                         <span>{this.props.description}</span>
                     </section>
                 </article>

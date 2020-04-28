@@ -20,15 +20,26 @@ a.link{
     }
 
     &.box-shadow {
-        //box-shadow: inherit;
         &:hover{
             box-shadow: 0 1px 0 0 currentColor;
         }
     }
 
+    &.no-box-shadow{
+        box-shadow: 0 0px 0 0;
+    }
+
     &.no-text-decoration{
         text-decoration: none;
     }
+}
+
+.article-title{
+    font-family : baskerville;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
 }
 
 /* application CSS */

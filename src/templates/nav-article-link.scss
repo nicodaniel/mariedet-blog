@@ -1,5 +1,69 @@
-.nav-previous-after{
+@import "../helpers/variables";
+
+.pagination-nav{
+    transition: $transition-visibility;
+    background: white;
+    &:hover{
+        transition: $transition-visibility;
+        .nav-more-info{
+            display: flex;
+            visibility: visible;
+
+            &.prev-pagination{
+               img{
+                   order: 1;
+               }
+                span{
+                    order: 2;
+                }
+            }
+
+            span.article-title{
+                align-self: center;
+                margin: 20px
+            }
+
+            img{
+                margin: 0;
+                height: fit-content;
+                align-self: center;
+            }
+        }
+
+        a{
+            display: flex;
+            width: 250px;
+            &:hover{
+                color: black;
+            }
+        }
+
+        .nav-arrow{
+            visibility: hidden;
+        }
+    }
+
+    a {
+        display: flex;
+        .nav-arrow{
+            order:1;
+            font-size: 40px;
+            text-align: right;
+            flex-grow: 1;
+        }
+    }
+
     .nav-more-info{
         visibility: hidden;
+        position: absolute;
+        height: 70px;
+
+        &.next-pagination{
+            right: 0;
+        }
+
+        &.previous-pagination{
+            left: 0;
+        }
     }
 }
