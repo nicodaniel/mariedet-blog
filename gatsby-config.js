@@ -11,6 +11,13 @@ module.exports = {
         },
     },
     plugins: [
+        /* a node for instagram post  */
+        {
+            resolve: `gatsby-source-instagram`,
+            options: {
+                username: `mariedet`,
+            },
+        },
         /* sass and scss inside gatsby */
         `gatsby-plugin-sass`,
         /* use NETLIFI as a backend */

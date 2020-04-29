@@ -22,7 +22,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
-          <p style={{textAlign: "center", color: 'grey', fontFamily : 'baskerville', fontSize: '15px', fontWeight: 400, paddingTop: '40px'}}>
+          <p className="article-date" style={{textAlign: "center",fontSize: '15px', fontWeight: 400, paddingTop: '40px'}}>
             {post.frontmatter.date}
           </p>
             <p className="article-title" style={{textAlign: 'center', fontSize: '42px', paddingTop: '40px',  paddingBottom: '80px'}}>{post.frontmatter.title}</p>

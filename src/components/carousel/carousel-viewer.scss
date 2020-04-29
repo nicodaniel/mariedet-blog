@@ -1,3 +1,18 @@
 .carousel-root{
     padding-bottom: 40px;
+
+    img{
+        margin-bottom: 0;
+    }
+
+    .carousel-text-container{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: rgba(255,255,255,.85);
+        padding: 10px;
+        transform: translate(-50%, -50%);
+    }
 }

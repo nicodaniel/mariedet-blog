@@ -18,7 +18,7 @@ const BlogIndex = ({data, location}) => {
 
             {/*carousel*/}
             <CarouselViewer
-                images={data.carouselPreview.edges.filter(edge => edge.node.frontmatter.preview.childImageSharp.fixed).map(edge => edge.node.frontmatter.preview.childImageSharp.fixed)}/>
+                data={data.carouselPreview.edges.map(edge => edge.node.frontmatter)}/>
 
             {/*article section*/}
             {postsByTopics.sort((group, group2) => {
@@ -45,6 +45,9 @@ export const pageQuery = graphql`
         edges {
           node {
             frontmatter {
+              title
+              topic
+              date(formatString: "MMMM DD, YYYY")
               preview{
                 childImageSharp {
                   fixed(width: 800, height: 400) {
@@ -56,12 +59,15 @@ export const pageQuery = graphql`
           }
         }
     }
-    instagram: allFile(filter: {absolutePath: { regex: "/(inst)[1-9]*/" } }) {
+    instagram: allInstaNode( limit: 8) {
       edges {
         node {
-          childImageSharp {
-            fluid(maxWidth: 185, maxHeight: 185) {
-              ...GatsbyImageSharpFluid
+          id
+          localFile {
+            childImageSharp {
+              fixed(width: 185, height: 185) {
+                ...GatsbyImageSharpFixed
+              }
             }
           }
         }

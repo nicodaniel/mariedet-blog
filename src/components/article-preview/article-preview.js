@@ -10,7 +10,7 @@ export class ArticlePreview extends React.Component {
         const IMG_HEIGHT = 167;
         return (
             <Link to={this.props.articleKey}  style={{ boxShadow: `none` }}>
-                <article key={this.props.articleKey} style={{width: 223, marginRight: 20}}>
+                <article key={this.props.articleKey} style={{width: 223, marginRight: 20}} className="article-preview">
                     <Image
                         fixed={this.props.img}
                         alt={"article image"}
@@ -19,7 +19,6 @@ export class ArticlePreview extends React.Component {
                             marginBottom: 0,
                             width: IMG_WIDTH,
                             height: IMG_HEIGHT
-
                         }}
                     />
                     <header style={{fontFamily : 'baskerville-urw'}}>
