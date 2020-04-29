@@ -59,10 +59,11 @@ export const pageQuery = graphql`
           }
         }
     }
-    instagram: allInstaNode( limit: 8) {
+    instagram: allInstaNode(sort: { fields: [timestamp], order: DESC}, limit: 8) {
       edges {
         node {
           id
+          timestamp
           localFile {
             childImageSharp {
               fixed(width: 185, height: 185) {
