@@ -15,12 +15,15 @@ export class SocialFeed extends React.Component {
             <div className="social-feed-images">
                 <div className="social-feed-images-container">
                     {this.props.instagram.edges.map((edge) => {
+                        const imgHref = `https://www.instagram.com/p/${edge.node.id}`;
                         return <div className='image-container' style={{height: '194px'}}>
-                            <img src={edge.node.localFile.childImageSharp.fixed.src}
-                                 alt="social-img"
-                                 style={{marginRight: MARGIN, marginBottom: MARGIN}}
-                                 width={IMG_WIDTH}
-                                 height={IMG_WIDTH} />
+                            <a className="no-box-shadow" href={imgHref}>
+                                <img src={edge.node.localFile.childImageSharp.fixed.src}
+                                     alt="social-img"
+                                     style={{marginRight: MARGIN, marginBottom: MARGIN}}
+                                     width={IMG_WIDTH}
+                                     height={IMG_WIDTH} />
+                            </a>
                         </div>
                     })}
                 </div>

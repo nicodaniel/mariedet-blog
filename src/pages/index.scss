@@ -10,6 +10,10 @@
     text-transform: uppercase;
 }
 
+.no-box-shadow{
+    box-shadow: 0 0px 0 0;
+}
+
 a.link{
     transition:color 0.3s ease-out;
     cursor: pointer;
