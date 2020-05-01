@@ -1,69 +1,73 @@
 @import "../helpers/variables";
 
 .pagination-nav{
-    transition: $transition-visibility;
-    background: white;
+    width: 50px;
     &:hover{
-        transition: $transition-visibility;
-        .nav-more-info{
-            display: flex;
-            visibility: visible;
-
-            &.prev-pagination{
-               img{
-                   order: 1;
-               }
-                span{
-                    order: 2;
-                }
-            }
-
-            span.article-title{
-                align-self: center;
-                margin: 20px
-            }
-
-            img{
-                margin: 0;
-                height: fit-content;
-                align-self: center;
-            }
-        }
-
-        a{
-            display: flex;
-            width: 250px;
-            &:hover{
-                color: black;
-            }
-        }
-
+        width: 150px;
+        color:black;
         .nav-arrow{
             visibility: hidden;
         }
+        .nav-more-info{
+            transition-duration: 1.2s;
+            visibility: visible;
+            display: flex;
+
+            &.next-pagination{
+                transform: translateX(-80px);
+            }
+
+            &.prev-pagination{
+                transform: translateX(80px);
+            }
+
+            span.article-title{
+                flex: 1;
+                text-align: end;
+            }
+        }
+
     }
 
-    a {
-        display: flex;
-        .nav-arrow{
-            order:1;
-            font-size: 40px;
-            text-align: right;
-            flex-grow: 1;
-        }
+    a.link:hover{
+        color:black;
     }
 
     .nav-more-info{
+        display: flex;
         visibility: hidden;
-        position: absolute;
-        height: 70px;
+        background: white;
+        margin-top: -70px;
 
         &.next-pagination{
-            right: 0;
+            margin-right: -80px;
         }
 
-        &.previous-pagination{
-            left: 0;
+        &.prev-pagination{
+            margin-left: -80px;
+
+            span.article-title{
+                order:2;
+            }
+
+            img{
+                order: 1;
+            }
+        }
+
+        img{
+            margin: 0;
+            height: fit-content;
+            align-self: center;
+        }
+
+        .nav-arrow.next-arrow{
+            order: 1;
+        }
+
+        span.article-title{
+            align-self: center;
+            margin: 20px;
         }
     }
 }

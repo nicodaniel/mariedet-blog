@@ -36,7 +36,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       </article>
         <nav>
             <div style={{
-                position: 'absolute',
+                position: 'fixed',
                 top: '50%',
                 left: '0'
             }} className="pagination-nav">
@@ -53,7 +53,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 )}
             </div>
             <div style={{
-                position: 'absolute',
+                position: 'fixed',
                 top: '50%',
                 right: '0'
             }} className="pagination-nav">
@@ -94,7 +94,7 @@ export const pageQuery = graphql`
         description
         preview {
           childImageSharp {
-            fixed(width: 50) {
+            fixed(width: 70) {
               ...GatsbyImageSharpFixed
             }
           }
