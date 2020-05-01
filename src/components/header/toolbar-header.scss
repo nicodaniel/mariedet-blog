@@ -9,7 +9,6 @@
     display: flex;
 
     .blog-name{
-        float: left;
         font-size: 18px;
     }
 
@@ -41,6 +40,10 @@
         &:hover{
             color: $grey;
         }
+    }
+
+    .icon-menu{
+        @extend %rotate-on-hover;
     }
 
 }

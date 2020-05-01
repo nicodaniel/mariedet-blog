@@ -11,16 +11,19 @@ export class ArticlePreview extends React.Component {
         return (
             <Link to={this.props.articleKey}  style={{ boxShadow: `none` }}>
                 <article key={this.props.articleKey} style={{width: 223, marginRight: 20}} className="article-preview">
-                    <Image
-                        fixed={this.props.img}
-                        alt={"article image"}
-                        style={{
-                            marginRight: rhythm(1 / 2),
-                            marginBottom: 0,
-                            width: IMG_WIDTH,
-                            height: IMG_HEIGHT
-                        }}
-                    />
+                    <div className="image-container">
+                        <Image
+                            fixed={this.props.img}
+                            alt={"article image"}
+                            style={{
+                                marginRight: rhythm(1 / 2),
+                                marginBottom: 0,
+                                width: IMG_WIDTH,
+                                height: IMG_HEIGHT
+                            }}
+                        />
+                        <div className="image-overlay"></div>
+                    </div>
                     <header style={{fontFamily : 'baskerville-urw'}}>
                         <small style={{color: 'grey', fontFamily : 'baskerville', fontSize: 15, fontWeight: 400}}>{this.props.date}</small>
                     </header>

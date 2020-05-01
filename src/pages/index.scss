@@ -51,9 +51,33 @@ a.link{
     letter-spacing: 0.18em;
 }
 
+/* image overloay */
+.image-container{
+    position: relative;
+    &:hover{
+        .image-overlay{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1)
+        }
+    }
+}
+
 /* application CSS */
 header.app-header{
-    padding: 50px 0px 50px 0px;
+    padding: 20px 70px 20px 0px;
+    position: fixed;
+    width: 100%;
+    max-width: 70rem;
+    z-index: 1000;
+    background: white;
+}
+
+main{
+    top: 90px;
+    position: relative;
 }
 
 footer.app-footer{

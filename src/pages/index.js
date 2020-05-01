@@ -13,12 +13,12 @@ const BlogIndex = ({data, location}) => {
     const postsByTopics = data.allMarkdownRemark.group;
 
     return (
-        <Layout location={location}>
+        <Layout location={location} displayToolbarName={true} topics={TOPICS} displaySocialIcons={true}>
             <SEO title="Home"/>
 
             {/*carousel*/}
             <CarouselViewer
-                data={data.carouselPreview.edges.map(edge => edge.node.frontmatter)}/>
+                data={data.carouselPreview.edges.map(edge => edge.node)}/>
 
             {/*article section*/}
             {postsByTopics.sort((group, group2) => {
@@ -44,6 +44,9 @@ export const pageQuery = graphql`
     carouselPreview: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC}, limit: 3){
         edges {
           node {
+            fields{
+               slug
+            }
             frontmatter {
               title
               topic

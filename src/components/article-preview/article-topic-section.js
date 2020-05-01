@@ -14,7 +14,7 @@ export class ArticleTopic extends React.Component{
                 <div className="article-list" style={{display: 'flex',flexWrap: 'wrap'}} key={'article-list'}>
                     {this.props.posts.map((node, index) => {
                         return (
-                            <div key={index}>
+                            <div className="article-preview-container" key={index}>
                                 <ArticlePreview
                                     articleKey={node.node.fields.slug}
                                     img={node.node.frontmatter.preview.childImageSharp.fixed}
