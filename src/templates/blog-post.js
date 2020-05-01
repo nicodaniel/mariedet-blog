@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 
 import "./nav-article-link.scss";
 
@@ -28,7 +28,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             <p className="article-title" style={{textAlign: 'center', lineHeight: '38px', fontSize: '40px', paddingTop: '20px',  paddingBottom: '30px'}}>{post.frontmatter.title}</p>
         </header>
           <div style={{display: 'flex', marginBottom: '30px'}}>
-              <img style={{margin: 'auto'}} src={post.frontmatter.preview.childImageSharp.fixed.src} />
+              <img alt={"post preview"} style={{margin: 'auto'}} src={post.frontmatter.preview.childImageSharp.fixed.src} />
           </div>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -50,7 +50,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                             <span className="article-title" style={{alignSelf: 'center'}} >
                                 <span>{previousPost.frontmatter.title}</span>
                             </span>
-                            <img src={previousPost.frontmatter.preview.childImageSharp.fixed.src} />
+                            <img alt="previous post" src={previousPost.frontmatter.preview.childImageSharp.fixed.src} />
                         </div>
                     </Link>
                 )}
@@ -67,7 +67,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                             <span className="article-title" style={{alignSelf: 'center'}} >
                                 <span>{nextPost.frontmatter.title}</span>
                             </span>
-                            <img src={nextPost.frontmatter.preview.childImageSharp.fixed.src} />
+                            <img alt="next post" src={nextPost.frontmatter.preview.childImageSharp.fixed.src} />
                         </div>
                     </Link>
                 )}

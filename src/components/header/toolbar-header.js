@@ -50,7 +50,7 @@ export const ToolbarHeader = (props) => {
      * @return {ReactDOMElement}
      */
     const toolbarHeaderContent = (topics, displaySocialIcons) => {
-        return <div className="header-nav-container-topic" className={classes.toolbarTopics}>
+        return <div className={classNames(classes.toolbarTopics, "header-nav-container-topic")}>
             {toolbarHeaderTopic(topics)}
             {toolbarSocialIcon(displaySocialIcons)}
         </div>
