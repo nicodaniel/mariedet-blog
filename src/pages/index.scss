@@ -1,5 +1,6 @@
 @import "../helpers/variables";
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque&display=swap');
+
 
 /* CSS class HELPERS */
 .centered{
@@ -40,12 +41,12 @@ a.link{
 
 .article-date{
     color: grey;
-    font-family : 'baskerville';
+    @extend %font2;
 }
 
 .article-title{
-    font-family : baskerville;
-    font-size: 20px;
+    @extend %font2;
+    font-size: 21px;
     line-height: 24px;
     font-weight: 400;
     letter-spacing: 0.18em;

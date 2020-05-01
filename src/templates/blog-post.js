@@ -22,12 +22,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
-          <p className="article-date" style={{textAlign: "center",fontSize: '15px', fontWeight: 400, paddingTop: '40px'}}>
+          <p className="article-date" style={{textAlign: "center",fontSize: '19px', fontWeight: 400, paddingTop: '40px'}}>
             {post.frontmatter.date}
           </p>
-            <p className="article-title" style={{textAlign: 'center', fontSize: '42px', paddingTop: '40px',  paddingBottom: '80px'}}>{post.frontmatter.title}</p>
+            <p className="article-title" style={{textAlign: 'center', lineHeight: '38px', fontSize: '40px', paddingTop: '20px',  paddingBottom: '30px'}}>{post.frontmatter.title}</p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div style={{display: 'flex', marginBottom: '30px'}}>
+              <img style={{margin: 'auto'}} src={post.frontmatter.preview.childImageSharp.fixed.src} />
+          </div>
+          <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -112,7 +115,7 @@ export const pageQuery = graphql`
         description
         preview {
           childImageSharp {
-            fixed(width: 50) {
+            fixed(width: 70) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -128,6 +131,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         topic
+        preview {
+          childImageSharp {
+            fixed {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
       }
     }
   }

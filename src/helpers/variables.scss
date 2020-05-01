@@ -23,3 +23,28 @@ $transition-visibility: visibility 0.5s linear 300ms, opacity 300ms;
     }
 }
 
+/* FONT */
+%font1 {
+    font-family: Arial;
+    font-weight: 600;
+}
+
+.font1{
+    @extend %font1;
+}
+
+%font2 {
+    font-family: darker grotesque;
+}
+
+.font2{
+    @extend %font2;
+}
+
+%font3 {
+    font-family: "poiret one";
+}
+
+.font3{
+    @extend %font3;
+}

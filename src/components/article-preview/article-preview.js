@@ -24,8 +24,8 @@ export class ArticlePreview extends React.Component {
                         />
                         <div className="image-overlay"></div>
                     </div>
-                    <header style={{fontFamily : 'baskerville-urw'}}>
-                        <small style={{color: 'grey', fontFamily : 'baskerville', fontSize: 15, fontWeight: 400}}>{this.props.date}</small>
+                    <header>
+                        <small className="font2" style={{color: 'grey', fontSize: 15, fontWeight: 400}}>{this.props.date}</small>
                     </header>
                     <section style={{color: 'black'}} className="article-title">
                         <span>{this.props.description}</span>

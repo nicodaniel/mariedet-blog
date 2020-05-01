@@ -1,7 +1,7 @@
 import Typography from "typography"
 
 const typography = new Typography({
-    title: "Wordpress Theme 2016",
+    title: "Custom typography for the blog",
     baseFontSize: "16px",
     baseLineHeight: 1.75,
     scaleRatio: 5 / 2,
@@ -12,6 +12,10 @@ const typography = new Typography({
         },
         {
             name: "Montserrat",
+            styles: ["700"],
+        },
+        {
+            name: "Sacramento",
             styles: ["700"],
         }
     ],

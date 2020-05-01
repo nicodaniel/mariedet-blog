@@ -15,8 +15,8 @@ export class CarouselViewer extends React.Component {
                                     <div key={index}>
                                         <img src={d.frontmatter.preview.childImageSharp.fixed.src} alt="carousel img" />
                                         <div className="carousel-text-container">
-                                        <span className="capital-letters article-topic"
-                                              style={{fontFamily: 'Montserrat', fontSize: '10'}}>{d.frontmatter.topic}</span>
+                                        <span className="capital-letters article-topic font1"
+                                              style={{fontSize: '10'}}>{d.frontmatter.topic}</span>
                                             <span className="article-title">{d.frontmatter.title}</span>
                                             <span className="article-date"><small>{d.frontmatter.date}</small></span>
                                         </div>

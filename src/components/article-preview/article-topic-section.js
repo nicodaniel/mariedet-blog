@@ -7,7 +7,7 @@ export class ArticleTopic extends React.Component{
     render(){
         return <div className="article-by-topics">
             <div className="article-by-topics-header">
-                <span className="capital-letters" style={{fontFamily: "Montserrat"}}>{this.props.topic}</span>
+                <span className="capital-letters font1">{this.props.topic}</span>
                 {this.props.showLink?<Link className="link no-text-decoration box-shadow" to={`/topic/${this.props.topic}`} style={{float:"right"}}>See All in {this.props.topic}</Link>:null}
             </div>
             <div className="article-by-topics-content">
