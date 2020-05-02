@@ -4,7 +4,6 @@ date: "2020-04-28T21:23:00.000Z"
 description: "Basso bike"
 topic: "cycling"
 preview: "post4.jpg"
-previewName: "post4"
 ---
 
 100% made in Italy 

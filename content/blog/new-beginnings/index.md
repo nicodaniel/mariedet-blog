@@ -4,7 +4,6 @@ date: "2016-09-13T22:40:32.169Z"
 description: This Space is Perfect for Inspiring Your Readers With a Bold Title.
 topic: "training"
 preview: "post3.jpg"
-previewName: "post3"
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

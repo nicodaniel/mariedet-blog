@@ -4,7 +4,6 @@ date: "2020-04-28T21:37:00.000Z"
 description: Wahoo
 topic: "cycling"
 preview: "post5.jpg"
-previewName: "post5"
 ---
 
 Since 2019 I use to train with the home trainer WAHOO KICKR CORE. For me, it’s the best home trainer regarding the price and the quality. It’s really easy to use (very important for me ahah) and with ZWIFT it’s the perfect combo for a perfect performance indoor training. 

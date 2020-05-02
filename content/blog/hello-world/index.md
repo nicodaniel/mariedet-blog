@@ -4,7 +4,6 @@ date: "2015-05-01T22:12:03.284Z"
 description: "Captivate Your Readers With an Interesting Blog Post Title"
 topic: "travel"
 preview: "post1.jpg"
-previewName: "post1"
 ---
 
 This is my first post on my new fake blog! How exciting!
