@@ -7,19 +7,15 @@ const typography = new Typography({
     scaleRatio: 5 / 2,
     googleFonts: [
         {
-            name: "baskerville",
-            styles: ["400", "400i", "700", "700i", "900", "900i"],
+            name: "Darker Grotesque",
+            styles: ["400"],
         },
         {
-            name: "Montserrat",
-            styles: ["700"],
-        },
-        {
-            name: "Sacramento",
+            name: "poiret one",
             styles: ["700"],
         }
     ],
-    headerFontFamily: ["baskerville", "Arial", "sans-serif"],
+    headerFontFamily: ["Arial", "sans-serif"],
     bodyFontFamily: ["baskerville", "Arial", "sans-serif"],
     bodyColor: "hsla(0,0%,0%,0.9)",
     headerWeight: 900,
