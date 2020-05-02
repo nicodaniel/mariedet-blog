@@ -24,7 +24,6 @@ exports.createPages = async ({graphql, actions}) => {
               frontmatter {
                 title
                 topic
-                previewName
               }
             }
           }
