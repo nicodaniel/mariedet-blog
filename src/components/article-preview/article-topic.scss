@@ -7,6 +7,28 @@
     padding: 0px 160px 0px 160px;
 }
 
+/* TODO we should remove these media queries to find a nicer implementation */
+/* media queries for padding */
+@media screen and (max-width: 1000px) {
+    .article-by-topics{
+        padding: 0px 80px 0px 80px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .article-by-topics{
+        padding: 0px 40px 0px 40px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .article-by-topics{
+        padding: 0px 20px 0px 20px;
+    }
+}
+/* END media queries for padding */
+
+
 .article-by-topics-content{
     padding-bottom: 40px;
 

@@ -69,7 +69,7 @@ export const pageQuery = graphql`
           timestamp
           localFile {
             childImageSharp {
-              fixed(width: 185, height: 185) {
+              fixed(width: 400, height: 400) {
                 ...GatsbyImageSharpFixed
               }
             }
