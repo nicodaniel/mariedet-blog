@@ -4,15 +4,20 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
-
 import "./nav-article-link.scss";
+import { DiscussionEmbed } from "disqus-react"
 
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
   const nextPost = data.nextPost;
   const previousPost = data.previousPost;
-  const { previous, next } = pageContext
+  const { previous, next } = pageContext;
+
+  const disqusConfig = {
+      shortname: process.env.GATSBY_DISQUS_NAME,
+      config: { identifier: post.fields.slug, title: post.frontmatter.title },
+  };
 
   return (
     <Layout location={location}>
@@ -36,6 +41,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
+        <DiscussionEmbed {...disqusConfig} />
       </article>
         <nav>
             <div style={{
@@ -75,7 +81,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </nav>
     </Layout>
   )
-}
+};
 
 export default BlogPostTemplate
 
@@ -93,7 +99,6 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
         description
         preview {
           childImageSharp {
@@ -111,7 +116,6 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
         description
         preview {
           childImageSharp {
@@ -126,6 +130,9 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -141,4 +148,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
