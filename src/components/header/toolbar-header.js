@@ -4,7 +4,7 @@ import "./toolbar-header.scss";
 import InstagramIcon from '@material-ui/icons/Instagram';
 import classNames from "classnames";
 import MenuIcon from "@material-ui/icons/Menu";
-import IconButton from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import CloseIcon from '@material-ui/icons/Close';
 import "./side-panel-nav.scss";
@@ -85,7 +85,7 @@ export const ToolbarHeader = (props) => {
                {toolbarHeaderContent(props.topics, props.displaySocialIcons)}
 
                {props.responsive && <IconButton
-                   style={{backgroundColor: 'transparent'}}
+                   style={{backgroundColor: 'transparent', color: 'black'}}
                    onClick={toggleDrawer("left", true)}
                    className={classNames(classes.toolbarSandwich, "icon-menu")}
                >
