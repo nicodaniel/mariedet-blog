@@ -2,16 +2,14 @@ module.exports = {
     siteMetadata: {
         title: `Mariedet Blog`,
         author: {
-            name: `Nicolas DANIEL`,
-            summary: `who lives and works in San Francisco building useful things.`,
+            name: `Marie DETOUCHE`,
+            summary: `cycling and travelling around`,
         },
-        description: `Follow my journey`,
-        social: {
-            twitter: `kylemathews`,
-        },
+        description: `Follow my journey - cycling - riding - nature - adventure`,
+        siteUrl: `https://mariedet.cc`,
     },
     plugins: [
-        /* a node for instagram post  */
+        /* a plugin for instagram post  */
         {
             resolve: `gatsby-source-instagram`,
             options: {
