@@ -17,8 +17,7 @@ const Layout = ({ location, children }) => {
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: rhythm(40),
-            padding: `0px 38px 0px 38px`,
+            maxWidth: rhythm(40)
           }}
         >
           <header className="app-header">
