@@ -18,6 +18,17 @@ module.exports = {
         },
         /* sass and scss inside gatsby */
         `gatsby-plugin-sass`,
+        {
+            resolve: `gatsby-plugin-material-ui`,
+            // If you want to use styled components, in conjunction to Material-UI, you should:
+            // - Change the injection order
+            // - Add the plugin
+            options: {
+                stylesProvider: {
+                    injectFirst: true,
+                },
+            }
+        },
         /* use NETLIFI as a backend */
         `gatsby-plugin-netlify-cms`,
         {
