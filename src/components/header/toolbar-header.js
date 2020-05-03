@@ -9,7 +9,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import CloseIcon from '@material-ui/icons/Close';
 import "./side-panel-nav.scss";
 import { makeStyles } from '@material-ui/core/styles';
-
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 /**
  * Navigation header component
@@ -52,7 +52,10 @@ export const ToolbarHeader = (props) => {
     const toolbarHeaderContent = (topics, displaySocialIcons) => {
         return <div className={classNames(classes.toolbarTopics, "header-nav-container-topic")}>
             {toolbarHeaderTopic(topics)}
-            {toolbarSocialIcon(displaySocialIcons)}
+            <span className="social-icons-container">
+                {toolbarSocialIcon(displaySocialIcons)}
+                {toolbarMailIcon(props.displayMailIcon)}
+            </span>
         </div>
     };
 
@@ -76,6 +79,15 @@ export const ToolbarHeader = (props) => {
      **/
     const toolbarSocialIcon = (displaySocialIcons) => {
         return displaySocialIcons && <span className="social-icons"><a href="https://www.instagram.com/mariedet/"><InstagramIcon /></a></span>
+    };
+
+    /**
+     * Display mail icon
+     * @param {boolean} displayMailIcon
+     * @return {null | ReactDOMElement}
+     **/
+    const toolbarMailIcon = (displayMailIcon) => {
+        return displayMailIcon && <span className="social-icons"><a href="mailto:marie.detouche@hotmail.fr"><MailOutlineIcon /></a></span>
     };
 
     return (
@@ -104,6 +116,7 @@ export const ToolbarHeader = (props) => {
                     <CloseIcon className="close-icon" style={{cursor: 'pointer'}} onClick={toggleDrawer("left", false)} />
                     {toolbarHeaderTopic(props.topics)}
                     {toolbarSocialIcon(props.displaySocialIcons)}
+                    {toolbarMailIcon(props.displayMailIcon)}
                 </div>}
             </SwipeableDrawer>
         </div>

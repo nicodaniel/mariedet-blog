@@ -13,14 +13,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const previousPost = data.previousPost;
   const { previous, next } = pageContext;
 
-  const disqusConfig = {
-      shortname: process.env.GATSBY_DISQUS_NAME,
-      config: {
-          url: typeof window !== 'undefined' && window.location.origin + post.fields.slug,
-          identifier: post.fields.slug,
-          title: post.frontmatter.title },
-  };
-
   return (
     <Layout location={location}>
       <SEO
