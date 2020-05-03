@@ -53,6 +53,7 @@ a.link{
 /* image overloay */
 .image-container{
     position: relative;
+    cursor: pointer;
     &:hover{
         .image-overlay{
             position: absolute;

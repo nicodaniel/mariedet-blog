@@ -97,7 +97,7 @@ export const SocialFeed = (props) => {
                 <div style={{display: 'flex', flexWrap: 'wrap'}} ref={el => (containerRef.current = el)}>
                     {props.instagram.edges.map((edge, index) => {
                         const imgHref = `https://www.instagram.com/p/${edge.node.id}`;
-                        return <div className={styles().layoutColumn}
+                        return <div className={classNames(styles().layoutColumn, "image-container")}
                                     ref={el => (index === 0 || index === 1 ? tileRef.current[index] = el : null)}>
                             <a className="no-box-shadow" href={imgHref}>
                                 <img ref={el => (imgRef.current[index] = el)}
@@ -111,6 +111,7 @@ export const SocialFeed = (props) => {
                                      width={IMG_WIDTH}
                                      height={IMG_WIDTH}/>
                             </a>
+                            <div className="image-overlay"></div>
                         </div>
                     })}
                 </div>
