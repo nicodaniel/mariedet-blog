@@ -16,7 +16,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   const disqusConfig = {
       shortname: process.env.GATSBY_DISQUS_NAME,
-      config: { identifier: post.fields.slug, title: post.frontmatter.title },
+      config: {
+          url: window.location.origin + post.fields.slug,
+          identifier: post.fields.slug,
+          title: post.frontmatter.title },
   };
 
   return (
