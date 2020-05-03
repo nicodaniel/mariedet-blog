@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import "./nav-article-link.scss";
-import { DiscussionEmbed } from "disqus-react"
 
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -44,7 +43,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <DiscussionEmbed {...disqusConfig} />
       </article>
         <nav>
             <div style={{
