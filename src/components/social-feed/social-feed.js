@@ -3,8 +3,8 @@ import "./social-feed.scss"
 
 export const SocialFeed = (props) => {
     const [dimensions, setDimensions] = React.useState({
-        height: window.innerHeight,
-        width: window.innerWidth
+        height: typeof window !== 'undefined' && window.innerHeight,
+        width: typeof window !== 'undefined' && window.innerWidth
     });
 
     const tileRef = React.useRef([...Array(2)].map(() => React.createRef()));
@@ -15,8 +15,8 @@ export const SocialFeed = (props) => {
     React.useEffect(() => {
        redrawImg(tileRef, imgRef);
        const handleResizeEvent = () => setDimensions({
-           height: window.innerHeight,
-           width: window.innerWidth
+           height: typeof window !== 'undefined' && window.innerHeight,
+           width: typeof window !== 'undefined' && window.innerWidth
        });
 
        window.addEventListener('resize', handleResizeEvent);
@@ -62,7 +62,7 @@ export const SocialFeed = (props) => {
                                 <img ref={el => (imgRef.current[index] = el)}
                                      src={edge.node.localFile.childImageSharp.fixed.src}
                                      alt="social-img"
-                                     style={{marginRight: `${MARGIN}px`, marginBottom: `${MARGIN}px`}}
+                                     style={{marginRight: `${MARGIN}px`, marginBottom: `${MARGIN}px`, marginTop: `-5px`}}
                                      width={IMG_WIDTH}
                                      height={IMG_WIDTH} />
                             </a>

@@ -1,5 +1,4 @@
 import React from "react"
-import { rhythm } from "../utils/typography"
 import { ToolbarHeader } from "./header/toolbar-header"
 import "../pages/index.scss"
 const {TOPICS} = require(`../../constants`);
