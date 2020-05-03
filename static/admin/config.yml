@@ -1,20 +1,19 @@
 backend:
   name: github
   repo: nicodaniel/mariedet-blog
-media_folder: static/assets
+media_folder: content/assets
 public_folder: /assets
 collections:
   - name: blog
-    label: Blog
+    label: "mariedet articles"
     folder: content/blog
     path: '{{slug}}/index'
     create: true
     fields:
-      - { name: path, label: Path }
-      - { name: name, widget: string}
-      - { name: topic, label: "Topic", options: ["travel", "cycling", "training", "meet-up", "food"], widget: "select"}
-      - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
+      - { name: name, widget: string}
+      - { name: topic, label: Topic, options: ["travel", "cycling", "training", "meet-up", "food"], widget: "select"}
+      - { name: date, label: Date, widget: datetime }
       - { name: description, label: "Title description" }
       - { name: preview, label: "Image preview", widget: "image"}
       - { name: body, label: Body, widget: markdown }
