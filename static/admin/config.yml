@@ -6,10 +6,16 @@ public_folder: /assets
 collections:
   - name: blog
     label: Blog
-    folder: blog
+    folder: content/blog
+    path: '{{slug}}/index'
     create: true
     fields:
       - { name: path, label: Path }
+      - { name: name, widget: string}
+      - { name: topic, widget: string}
+      - { name: topic, label: "Topic", options: ["travel", "cycling", "training", "meet-up", "food"], widget: "select"}
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
+      - { name: description, label: "Title description" }
+      - { name: preview, label: "Image preview", widget: "image"}
       - { name: body, label: Body, widget: markdown }
