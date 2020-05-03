@@ -12,7 +12,6 @@ collections:
     fields:
       - { name: path, label: Path }
       - { name: name, widget: string}
-      - { name: topic, widget: string}
       - { name: topic, label: "Topic", options: ["travel", "cycling", "training", "meet-up", "food"], widget: "select"}
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
