@@ -9,6 +9,12 @@ module.exports = {
         siteUrl: `https://mariedet.cc`,
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-disqus`,
+            options: {
+                shortname: process.env.GATSBY_DISQUS_NAME
+            }
+        },
         /* a plugin for instagram post  */
         {
             resolve: `gatsby-source-instagram`,
