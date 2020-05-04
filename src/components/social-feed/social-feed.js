@@ -98,7 +98,7 @@ export const SocialFeed = (props) => {
                     {props.instagram.edges.map((edge, index) => {
                         const imgHref = `https://www.instagram.com/p/${edge.node.id}`;
                         return <div className={classNames(styles().layoutColumn, "image-container")}
-                                    ref={el => (index === 0 || index === 1 ? tileRef.current[index] = el : null)}>
+                                    ref={el => (index === 0 || index === 1 ? tileRef.current[index] = el : null)} key={index}>
                             <a className="no-box-shadow" href={imgHref}>
                                 <img ref={el => (imgRef.current[index] = el)}
                                      src={edge.node.localFile.childImageSharp.fixed.src}

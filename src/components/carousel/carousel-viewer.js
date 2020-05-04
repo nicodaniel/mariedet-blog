@@ -11,7 +11,7 @@ export class CarouselViewer extends React.Component {
             <Carousel showArrows={true} autoPlay={true} showIndicators={true} showThumbs={false}>
                 {
                     this.props.data.map((d, index) => {
-                        return <Link style={{color:'black'}} to={d.fields.slug}>
+                        return <Link style={{color:'black'}} to={d.fields.slug} key={index}>
                                     <div key={index}>
                                         <img src={d.frontmatter.preview.childImageSharp.fluid.src} alt="carousel img" />
                                         <div className="carousel-text-container">
