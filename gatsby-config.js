@@ -1,3 +1,8 @@
+/* use dotenv to access env variable in gatsby-config.js */
+require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
     siteMetadata: {
         title: `Mariedet Blog`,
@@ -6,15 +11,25 @@ module.exports = {
             summary: `cycling and travelling around`,
         },
         description: `Follow my journey - cycling - riding - nature - adventure`,
-        siteUrl: `https://mariedet.cc`,
+        siteUrl: `${process.env.GATSBY_SITE_URL}`,
     },
     plugins: [
+        /* a plugin to generate a robots.txt */
+        {
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                host: `${process.env.GATSBY_SITE_URL}`,
+                policy: [{userAgent: '*', allow: '/'}]
+            }
+        },
+        /* a plugin to generate a sitemap */
+        `gatsby-plugin-sitemap`,
         /* a plugin for instagram post  */
         {
             resolve: `gatsby-source-instagram`,
             options: {
                 username: `mariedet`,
-            },
+            }
         },
         /* sass and scss inside gatsby */
         `gatsby-plugin-sass`,
