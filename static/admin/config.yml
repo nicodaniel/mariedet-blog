@@ -11,7 +11,6 @@ collections:
     create: true
     fields:
       - { name: title, label: Title }
-      - { name: name, widget: string}
       - { name: topic, label: Topic, options: ["travel", "cycling", "training", "meet-up", "food"], widget: "select"}
       - { name: date, label: Date, widget: datetime }
       - { name: description, label: "Title description" }

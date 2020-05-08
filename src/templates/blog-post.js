@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import "./nav-article-link.scss";
+import Image from "gatsby-image";
 
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -26,8 +27,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </p>
             <p className="article-title" style={{textAlign: 'center', lineHeight: '38px', fontSize: '40px', paddingTop: '20px',  paddingBottom: '30px'}}>{post.frontmatter.title}</p>
         </header>
-          <div style={{display: 'flex', marginBottom: '30px', marginLeft: '65px', marginRight:'65px'}}>
-              <img alt={"post preview"} style={{margin: 'auto'}} src={post.frontmatter.preview.childImageSharp.fluid.src} />
+          <div style={{ marginBottom: '30px', marginLeft: '65px', marginRight:'65px'}}>
+              <Image
+                  style={{margin: 'auto'}}
+                  fluid={post.frontmatter.preview.childImageSharp.fluid}
+                  alt={"post preview"}
+              />
           </div>
           <section style={{marginLeft: '65px', marginRight:'65px'}} dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -134,7 +139,7 @@ export const pageQuery = graphql`
         preview {
           childImageSharp {
             fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid_noBase64
+              ...GatsbyImageSharpFluid
             }
           }
         }

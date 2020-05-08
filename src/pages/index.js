@@ -3,10 +3,10 @@ import {graphql} from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {SocialFeed} from "../components/social-feed/social-feed"
 import {CarouselViewer} from "../components/carousel/carousel-viewer";
 import "./index.scss";
 import {ArticleTopic} from "../components/article-preview/article-topic-section";
+import {PictureLayout} from "../components/utils/picture-layout";
 const {TOPICS} = require(`../../constants`);
 
 const BlogIndex = ({data, location}) => {
@@ -31,7 +31,11 @@ const BlogIndex = ({data, location}) => {
             })}
 
             {/*social section*/}
-            <SocialFeed instagram={data.instagram}/>
+            <PictureLayout title="Follow me"
+                           margin={9}
+                           images={data.instagram.edges.map(edge => {return {img: edge.node.localFile.childImageSharp.fixed, nodeId: edge.node.id}})}
+                           imageAlt={"social images"}
+                           instagramLink={true} />
 
         </Layout>
     )
@@ -53,7 +57,7 @@ export const pageQuery = graphql`
               date(formatString: "MMMM DD, YYYY")
               preview{
                 childImageSharp {
-                  fluid(maxWidth: 2000, maxHeight: 1200) {
+                  fluid(maxWidth: 2000, maxHeight: 1200, quality: 90) {
                     ...GatsbyImageSharpFluid
                   }
                 }

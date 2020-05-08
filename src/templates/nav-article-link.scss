@@ -41,10 +41,12 @@
 
         &.next-pagination{
             margin-right: -80px;
+            //transition: visibility 0ms 150ms linear, transform 137ms ease-out;
         }
 
         &.prev-pagination{
             margin-left: -80px;
+            //transition: transform 300ms ease-out;
 
             span.article-title{
                 order:2;

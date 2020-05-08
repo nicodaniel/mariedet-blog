@@ -28,7 +28,6 @@ export const topicQuery = graphql`
       }) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
