@@ -5,18 +5,15 @@ date: 2020-05-01T23:30:00.000Z
 description: Meet-up with Julien Verlay
 preview: post6.jpg
 ---
-
-
 Today, I did an interview to present you Julien Verlay, a nice friend in Paris.
 
 **Can you Introduce yourself ?**\
 \
 Hello I’m Julien Verlay aka @croaam on Instagram. I’m Parisian, passionate by cycling. I love sharing the road with mates and share experiences from the road. I’m riding for brands that I truly believe in like Festka, Maap, Wahoo, Oakley, 2-11 cycles, Mohawks. I’ve done several sportives around the globe, even if I’m not a racer, I love challenging myself, riding long distances, discover and meet new people from the road.
 
- **I know you are working for Haute Route, what your job consist in ?**\
+ **I know you are working for Haute Route, what your job consist in ?**
 
-I’ve started working for Haute Route since Jan 2019, as Market sales manager for Uk and France. 
-I’m managing the Ambassadors in those countries and activate the community on the ground activities with our partners, Bike shops, clubs, hubs, cafés..
+I’ve started working for Haute Route since Jan 2019, as Market sales manager for Uk and France.  I’m managing the Ambassadors in those countries and activate the community on the ground activities with our partners, Bike shops, clubs, hubs, cafés..
 
 **You did many Haute Route events, which one do you like the most and why ?** 
 
@@ -24,8 +21,7 @@ Yeah I’ve done a few, I’m deeply in love with Pyrénées because it’s wild
 
 **Did you already plan any haute route for the end of 2020 and 2021 ?**  
 
-Yes, before the Covid19 crisis I’ve planned to ride few Haute Route Dolomites, Crans-Montana, Pyrénées and Ventoux. 
-So fingers crossed for Ventoux, I hope we could make it. 
+Yes, before the Covid19 crisis I’ve planned to ride few Haute Route Dolomites, Crans-Montana, Pyrénées and Ventoux.  So fingers crossed for Ventoux, I hope we could make it. 
 
 **I remember the first time I met you in the bike shop l’Echappée Belle for the launch of the Hitters Social club. Can you tell us more about this club ?**  
 
@@ -34,7 +30,6 @@ This club has been created to keep the community together after spent 4 years by
 **What lead you to create this club ?**
 
 As you know I used to be involved with Rapha, as the RCC (Rapha cycling Club) coordinator France, and after been fired by the brand I wanted to have my own club and having mates involved with me, I couldn’t manage it all alone with my work, my baby, it would have been very difficult.
-
 
 **What are the big news for 2020 and 2021 ?  New partnership ? new routes or events ?**
 
