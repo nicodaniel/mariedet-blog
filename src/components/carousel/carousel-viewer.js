@@ -10,7 +10,7 @@ import Image from "gatsby-image";
 export class CarouselViewer extends React.Component {
     render() {
         return (
-            <Carousel  showArrows={true} autoPlay={true} showIndicators={true} showThumbs={false}>
+            <Carousel showArrows={true} autoPlay={true} showIndicators={true} showThumbs={false} stopOnHover={false} infiniteLoop={true} interval={5000} >
                 {
                     this.props.data.map((d, index) => {
                         return <Link style={{color:'black'}} to={d.fields.slug} key={index}>
