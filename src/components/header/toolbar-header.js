@@ -91,7 +91,7 @@ export const ToolbarHeader = (props) => {
     };
 
     return (
-        <div className="header-nav" key={"header-nav-key"}>
+        <div className={classNames("header-nav", props.extraStyle)} key={"header-nav-key"}>
            {props.displayToolbarName && <Link to={'/'}><span className="blog-name">MarieDet</span></Link>}
            <div className={classNames("header-nav-container", {centered : props.centered})}>
                {toolbarHeaderContent(props.topics, props.displaySocialIcons)}

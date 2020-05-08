@@ -72,6 +72,15 @@ header.app-header{
     width: 100%;
     z-index: 1000;
     background: white;
+
+    .header-nav.top-menu{
+        .header-nav-container{
+            a:last-child{
+              padding-left: 45px;
+            }
+        }
+    }
+
 }
 
 main{

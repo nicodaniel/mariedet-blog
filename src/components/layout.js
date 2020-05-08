@@ -19,7 +19,7 @@ const Layout = ({ location, children }) => {
           }}
         >
           <header className="app-header">
-              <ToolbarHeader responsive={true} displayToolbarName={true} topics={TOPICS} displaySocialIcons={true} displayMailIcon={false} />
+              <ToolbarHeader extraStyle={"top-menu"} responsive={true} displayToolbarName={true} topics={TOPICS} displaySocialIcons={true} displayMailIcon={false} />
           </header>
           <main>{children}</main>
           <footer className="app-footer">
