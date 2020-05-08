@@ -34,7 +34,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                   alt={"post preview"}
               />
           </div>
-          <section style={{marginLeft: '65px', marginRight:'65px'}} dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div className="section-container" style={{marginLeft: '65px', marginRight:'65px'}}>
+              <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          </div>
         <hr
           style={{
             marginBottom: rhythm(1),
