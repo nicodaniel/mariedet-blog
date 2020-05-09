@@ -6,6 +6,7 @@ import {WindowResize} from "./window-resize";
 import classNames from "classnames";
 import {MediaQueryUtils} from "../../helpers/media-queries";
 import "./picture-layout.scss";
+import {CustomImage} from "./custom-image";
 
 
 export const PictureLayout = (props) => {
@@ -67,20 +68,14 @@ export const PictureLayout = (props) => {
                 <div className="container">
                     <div style={{display: 'flex', flexWrap: 'wrap'}} ref={el => (containerRef.current = el)}>
                         {props.images.map((img, index) => {
-                            const imgHref = `https://www.instagram.com/p/${img.nodeId}`;
-                            return <div className={classNames(styles().layoutColumn, "image-container")}
-                                        style={{display: 'flex'}}
-                                        ref={el => (index === 0 || index === 1 ? tileRef.current[index] = el : null)} key={index}>
-                                <a className="no-box-shadow" href={imgHref}>
-                                    <img ref={el => (imgRef.current[index] = el)}
-                                         src={img.img.src}
-                                         alt={props.imageAlt}
-                                         style={{marginTop: `-${MARGIN}px`, marginBottom: `${MARGIN}px`}}
-                                         width={IMG_WIDTH}
-                                         height={IMG_WIDTH}/>
-                                </a>
-                                <div className="image-overlay"></div>
-                            </div>
+                            return <CustomImage ref={{tileRef: tileRef, imgRef: imgRef}}
+                                         currentKey={index}
+                                         customStyle={styles().layoutColumn}
+                                         srcPath={img.img.src}
+                                         imageAlt={props.imageAlt}
+                                         imageNodeId={img.nodeId}
+                                         margin={MARGIN}
+                                         imageWidth={IMG_WIDTH} />
                         })}
                     </div>
                 </div>

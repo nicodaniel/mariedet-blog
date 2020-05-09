@@ -30,6 +30,7 @@
     "gatsby-remark-copy-linked-files": "^2.2.3",
     "gatsby-remark-images": "^3.2.4",
     "gatsby-remark-prismjs": "^3.4.3",
+    "gatsby-remark-rehype-images": "^0.1.2",
     "gatsby-remark-responsive-iframe": "^2.3.3",
     "gatsby-remark-smartypants": "^2.2.3",
     "gatsby-source-filesystem": "^2.2.4",
@@ -45,6 +46,7 @@
     "react-helmet": "^5.2.1",
     "react-responsive-carousel": "^3.2.4",
     "react-typography": "^0.16.19",
+    "rehype-react": "^5.0.1",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19"

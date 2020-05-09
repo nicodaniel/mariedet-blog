@@ -3,9 +3,23 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import "./nav-article-link.scss";
 import Image from "gatsby-image";
+import rehypeReact from "rehype-react"
+
+const Paragraph = ({ children }) => {
+    if(children && children[0]){
+        const child = children[0];
+        if(child.props && child.props.className && child.props.className === 'gatsby-resp-image-wrapper'){
+            const subChildren = child.props.children;
+            if(subChildren && subChildren[1] && subChildren[1].props &&
+                subChildren[1].props.className === 'gatsby-resp-image-link'){
+                return <img src={subChildren[1].props.href} />
+            }
+        }
+    }
+    return children;
+};
 
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -13,6 +27,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const nextPost = data.nextPost;
   const previousPost = data.previousPost;
   const { previous, next } = pageContext;
+
+  /* markup to react component */
+  const renderAst = new rehypeReact({
+      createElement: React.createElement,
+      components: {
+        p: Paragraph
+      },
+  }).Compiler;
 
   return (
     <Layout location={location}>
@@ -35,13 +57,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               />
           </div>
           <div className="section-container" style={{marginLeft: '65px', marginRight:'65px'}}>
-              <section dangerouslySetInnerHTML={{ __html: post.html }} />
+              <section>
+                  {
+                      renderAst(post.htmlAst)
+                  }
+                  <Paragraph children={renderAst(post.htmlAst)}></Paragraph>
+              </section>
+              <hr style={{width: '75%', margin: 'auto', height:'0.5px', marginTop: '70px', marginBottom: '70px'}}/>
           </div>
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
       </article>
         <nav>
             <div style={{
@@ -129,7 +152,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      htmlAst
       fields {
         slug
       }

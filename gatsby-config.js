@@ -79,6 +79,13 @@ module.exports = {
                     `gatsby-remark-prismjs`,
                     `gatsby-remark-copy-linked-files`,
                     `gatsby-remark-smartypants`,
+                    /* transform html images to react component */
+                    {
+                        resolve: `gatsby-remark-rehype-images`,
+                        options: {
+                            tag: 'rehype-image'
+                        }
+                    }
                 ],
             },
         },
