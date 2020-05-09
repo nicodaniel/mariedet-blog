@@ -87,11 +87,19 @@ main{
     top: 90px;
     position: relative;
 
+  .section-container::selection{
+    background-color: $orange;
+  }
+
     article{
       .section-container{
-
         p{
           text-align: justify;
+        }
+
+        p::selection {
+          background-color: $green;
+          color: white;
         }
 
         section{
