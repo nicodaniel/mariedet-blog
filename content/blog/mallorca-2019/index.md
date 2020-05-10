@@ -9,13 +9,9 @@ Mallorca - February 2019
 
 ![](img_9668_facetune_11-03-2019-19-40-44.jpg)
 
-![]()
-
 ![](img_9379.jpeg)
 
 ![](img_9552.jpeg)
-
-![](img_9373-2.jpeg)
 
 ![](img_9378.jpeg)
 

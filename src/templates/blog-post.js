@@ -5,22 +5,50 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "./nav-article-link.scss";
 import Image from "gatsby-image";
-import rehypeReact from "rehype-react"
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import {makeStyles} from "@material-ui/core/styles";
+import * as rehypeReact from "rehype-react";
 
-const Paragraph = ({ children }) => {
-    if(children && children[0]){
-        const child = children[0];
-        if(child.props && child.props.className && child.props.className === 'gatsby-resp-image-wrapper'){
-            const subChildren = child.props.children;
-            if(subChildren && subChildren[1] && subChildren[1].props &&
-                subChildren[1].props.className === 'gatsby-resp-image-link'){
-                return <img src={subChildren[1].props.href} />
-            }
-        }
-    }
-    return children;
+
+/**
+ * Render paragraph from markdown
+ * @param children
+ * @return {*}
+ * @constructor
+ */
+const Paragragh = ({children}) => {
+    return <p>{children}</p>
 };
 
+/**
+ * Process images from markdown text and create a grid layout
+ * @param markdown
+ * @return {*}
+ * @constructor
+ */
+const MarkdownImages = (markdown) => {
+    const imagesProperties = markdown.markdown.img;
+    const COLUMN = 3;
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+        }
+    }));
+
+    const classes = useStyles();
+    return <div className={classes.root}>
+        <GridList cellHeight={160} className={classes.gridList} cols={COLUMN}>
+            {imagesProperties.map((img, index) => {
+                return <GridListTile key={index} cols={1} style={{marginBottom: 0}}>
+                    <img style={{objectFit: 'cover'}} src={img.src} />
+                </GridListTile>
+            })}
+        </GridList>
+    </div>
+};
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
@@ -28,15 +56,64 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const previousPost = data.previousPost;
   const { previous, next } = pageContext;
 
-  /* markup to react component */
+  const json = JSON.parse(JSON.stringify(post.htmlAst));
+
+    /**
+     * Rehype is waiting for this kind of structure, let's give him what he want ...
+     * @param json
+     * @return {{data: {quirksMode: boolean}, children: *, type: string}}
+     */
+  const createAst = (json) => {
+      return {type: "root", children: json, data: {quirksMode: false}};
+  };
+
+    /**
+     * Create a rehype render
+     * @type {compiler|(function(*=): (*))}
+     */
   const renderAst = new rehypeReact({
       createElement: React.createElement,
       components: {
-        p: Paragraph
+          p: Paragragh
       },
   }).Compiler;
 
-  return (
+  const filterImages = (element) => {
+      if(element.children && element.children[0].tagName === 'span'){
+          const spanElement = element.children[0];
+          if(spanElement.children && spanElement.children[1] &&
+              spanElement.children[1].properties.className[0] === "gatsby-resp-image-link"){
+              const linkElement = spanElement.children[1];
+              if(linkElement.children && linkElement.children[3] && linkElement.children[3].tagName === 'img'){
+                  return linkElement.children[3].properties;
+              }
+          }
+      }
+      return null;
+  };
+
+    /**
+     * Process markdown json and split text and images to process them differently...
+     * @param json
+     * @return {{img: [], text: []}}
+     */
+  const processMarkdown = (json) => {
+      const markdownImages = [];
+      const markdownText = [];
+      json.children.filter(child => child.type === "element").forEach(element => {
+          const img = filterImages(element);
+          if(img != null){
+              markdownImages.push(img);
+          }else{
+              markdownText.push(element);
+          }
+      });
+      return {img : markdownImages, text: markdownText};
+  };
+
+    const markdownProcessing = processMarkdown(json);
+
+    return (
     <Layout location={location}>
       <SEO
         title={post.frontmatter.title}
@@ -49,7 +126,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </p>
             <p className="article-title" style={{textAlign: 'center', lineHeight: '38px', fontSize: '40px', paddingTop: '20px',  paddingBottom: '30px'}}>{post.frontmatter.title}</p>
         </header>
-          <div style={{ marginBottom: '30px', marginLeft: '65px', marginRight:'65px'}}>
+          <div style={{ marginBottom: '30px', marginLeft: '95px', marginRight:'95px'}}>
               <Image
                   style={{margin: 'auto'}}
                   fluid={post.frontmatter.preview.childImageSharp.fluid}
@@ -59,9 +136,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <div className="section-container" style={{marginLeft: '65px', marginRight:'65px'}}>
               <section>
                   {
-                      renderAst(post.htmlAst)
+                      renderAst(createAst(markdownProcessing.text))
                   }
-                  <Paragraph children={renderAst(post.htmlAst)}></Paragraph>
+                  <MarkdownImages markdown={markdownProcessing} />
               </section>
               <hr style={{width: '75%', margin: 'auto', height:'0.5px', marginTop: '70px', marginBottom: '70px'}}/>
           </div>
@@ -152,6 +229,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
+      html
       htmlAst
       fields {
         slug

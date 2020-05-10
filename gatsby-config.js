@@ -5,12 +5,12 @@ require("dotenv").config({
 
 module.exports = {
     siteMetadata: {
-        title: `Mariedet Blog`,
+        title: `${process.env.GATSBY_SITE_URL}` || 'Mariedet Blog',
         author: {
             name: `Marie DETOUCHE`,
             summary: `cycling and travelling around`,
         },
-        description: `Follow my journey - cycling - riding - nature - adventure`,
+        description: `${process.env.GATSBY_SITE_DESCRIPTION}`,
         siteUrl: `${process.env.GATSBY_SITE_URL}`,
     },
     plugins: [
@@ -101,8 +101,9 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `Gatsby Starter Blog`,
-                short_name: `GatsbyJS`,
+                name: `${process.env.GATSBY_SITE_URL}` || 'Mariedet Blog',
+                short_name: `${process.env.GATSBY_SITE_URL}` || 'Mariedet Blog',
+                description: `${process.env.GATSBY_SITE_DESCRIPTION}`,
                 start_url: `/`,
                 background_color: `#ffffff`,
                 theme_color: `#663399`,
