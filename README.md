@@ -68,3 +68,4 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 ## 💫 Deploy
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/48b5180b-6890-4dfa-94b5-37bd8a649e08/deploy-status)](https://app.netlify.com/sites/dazzling-fermat-3b1899/deploys)
