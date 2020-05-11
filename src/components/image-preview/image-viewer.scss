@@ -1,0 +1,89 @@
+.image-viewer-container{
+
+    .close-btn {
+      position: fixed;
+      top: 10px;
+      right: 15px;
+      color: white;
+      z-index: 3;
+      cursor: pointer;
+      font-size: 30px;
+      &:hover{
+          color: #3b3737;
+      }
+    }
+
+    .image-viewer-carousel-container{
+        height: 80vh;
+        position: fixed;
+        top: 50px;
+        bottom: 50px;
+        right: 0;
+        left: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin-right: auto;
+        margin-left: auto;
+        z-index: 3;
+        max-width: 600px;
+
+        .carousel-root{
+            height: 100%;
+            padding: 0;
+
+            .carousel.carousel-slider {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .carousel .slide{
+          background: unset;
+        }
+
+        .carousel .thumb.selected, .carousel .thumb:hover{
+            border: 2px solid white;
+        }
+
+        .carousel .thumb{
+            border: unset;
+        }
+    }
+
+    .carousel.carousel-slider .control-arrow{
+        &:before{
+            font-family: 'Material Icons';
+            content: '\e5c4';
+        }
+    }
+
+    .nav-link{
+        color: white;
+        float: right;
+        position: fixed;
+        top: 50%;
+        font-size: 40px;
+        cursor: pointer;
+
+        &.next{
+            right: 20px;
+        }
+
+        &.previous{
+            left: 20px
+        }
+    }
+}
+
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  background-color: rgba(0, 0, 0, 0.90);
+}

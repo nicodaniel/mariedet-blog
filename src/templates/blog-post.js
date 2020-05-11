@@ -5,10 +5,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "./nav-article-link.scss";
 import Image from "gatsby-image";
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import {makeStyles} from "@material-ui/core/styles";
 import * as rehypeReact from "rehype-react";
+import {ImageViewer} from "../components/image-preview/image-viewer";
+import {MarkdownImages} from "../components/markdown/markdown-image";
 
 
 /**
@@ -21,42 +20,13 @@ const Paragragh = ({children}) => {
     return <p>{children}</p>
 };
 
-/**
- * Process images from markdown text and create a grid layout
- * @param markdown
- * @return {*}
- * @constructor
- */
-const MarkdownImages = (markdown) => {
-    const imagesProperties = markdown.markdown.img;
-    const COLUMN = 3;
-    const useStyles = makeStyles((theme) => ({
-        root: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-        }
-    }));
-
-    const classes = useStyles();
-    return <div className={classes.root}>
-        <GridList cellHeight={160} className={classes.gridList} cols={COLUMN}>
-            {imagesProperties.map((img, index) => {
-                return <GridListTile key={index} cols={1} style={{marginBottom: 0}}>
-                    <img style={{objectFit: 'cover'}} src={img.src} />
-                </GridListTile>
-            })}
-        </GridList>
-    </div>
-};
-
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
   const nextPost = data.nextPost;
   const previousPost = data.previousPost;
   const { previous, next } = pageContext;
 
-  const json = JSON.parse(JSON.stringify(post.htmlAst));
+  const [showImageViewer, setShowImageViewer] = React.useState({show: false, index: 0});
 
     /**
      * Rehype is waiting for this kind of structure, let's give him what he want ...
@@ -111,6 +81,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       return {img : markdownImages, text: markdownText};
   };
 
+
+    const json = JSON.parse(JSON.stringify(post.htmlAst));
     const markdownProcessing = processMarkdown(json);
 
     return (
@@ -135,11 +107,17 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </div>
           <div className="section-container" style={{marginLeft: '65px', marginRight:'65px'}}>
               <section>
-                  {
-                      renderAst(createAst(markdownProcessing.text))
-                  }
-                  <MarkdownImages markdown={markdownProcessing} />
+                  {/*display article content*/}
+                  {renderAst(createAst(markdownProcessing.text))}
+
+                  {/*display images*/}
+                  <MarkdownImages markdown={markdownProcessing} setShowImageViewer={setShowImageViewer} />
+
               </section>
+              {/*display images in carousel on click*/}
+              <ImageViewer markdownProcessing={markdownProcessing} show={showImageViewer} openViewer={setShowImageViewer}  />
+
+              {/*footer delimiter*/}
               <hr style={{width: '75%', margin: 'auto', height:'0.5px', marginTop: '70px', marginBottom: '70px'}}/>
           </div>
       </article>
