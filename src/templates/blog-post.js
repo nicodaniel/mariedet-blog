@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import "./nav-article-link.scss";
 import Image from "gatsby-image";
 import * as rehypeReact from "rehype-react";
 import {ImageViewer} from "../components/image-preview/image-viewer";

@@ -1,0 +1,11 @@
+/**
+ * an utils to render use parallax effect on images...
+ * with  background-image: url('https://xxxx');
+ */
+.parallax-img {
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

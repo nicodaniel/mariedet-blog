@@ -7,6 +7,7 @@ import {CarouselViewer} from "../components/carousel/carousel-viewer";
 import "./index.scss";
 import {ArticleTopic} from "../components/article-preview/article-topic-section";
 import {PictureLayout} from "../components/utils/picture-layout";
+import "../css/parallax-image.scss";
 const {TOPICS} = require(`../../constants`);
 
 const BlogIndex = ({data, location}) => {
