@@ -4,14 +4,14 @@
 }
 
 .article-by-topics{
-    padding: 0px 160px 0px 160px;
+    padding: 0px 60px 0px 60px;
 }
 
 /* TODO we should remove these media queries to find a nicer implementation */
 /* media queries for padding */
 @media screen and (max-width: 1000px) {
     .article-by-topics{
-        padding: 0px 80px 0px 80px;
+        padding: 0px 50px 0px 50px;
     }
 }
 

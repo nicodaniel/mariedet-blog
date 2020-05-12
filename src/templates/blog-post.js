@@ -8,6 +8,7 @@ import Image from "gatsby-image";
 import * as rehypeReact from "rehype-react";
 import {ImageViewer} from "../components/image-preview/image-viewer";
 import {MarkdownImages} from "../components/markdown/markdown-image";
+import {NavigationArrow} from "../components/article-nav/navigation-arrow";
 
 
 /**
@@ -122,40 +123,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </div>
       </article>
         <nav>
-            <div style={{
-                position: 'fixed',
-                top: '50%',
-                left: '0'
-            }} className="pagination-nav">
-                {previous && (
-                    <Link to={previousPost.fields.slug} rel="prev" className="link no-box-shadow">
-                        <div className="nav-arrow prev-arrow" style={{fontSize: 40,textAlign:'left'}}>←</div>
-                        <div className="nav-more-info prev-pagination">
-                            <span className="article-title" style={{alignSelf: 'center'}} >
-                                <span>{previousPost.frontmatter.title}</span>
-                            </span>
-                            <img alt="previous post" src={previousPost.frontmatter.preview.childImageSharp.fixed.src} />
-                        </div>
-                    </Link>
-                )}
-            </div>
-            <div style={{
-                position: 'fixed',
-                top: '50%',
-                right: '0'
-            }} className="pagination-nav">
-                {next && (
-                    <Link to={nextPost.fields.slug} rel="next" className="link no-box-shadow">
-                        <div className="nav-arrow next-arrow" style={{fontSize: 40, textAlign:'right'}}>→</div>
-                        <div className="nav-more-info next-pagination">
-                            <span className="article-title" style={{alignSelf: 'center'}} >
-                                <span>{nextPost.frontmatter.title}</span>
-                            </span>
-                            <img alt="next post" src={nextPost.frontmatter.preview.childImageSharp.fixed.src} />
-                        </div>
-                    </Link>
-                )}
-            </div>
+            {/*left arrow nav */}
+            <NavigationArrow direction={"LEFT"} displayLink={previous} post={previousPost} alt="Previous post"  />
+
+            {/*right arrow nav*/}
+            <NavigationArrow direction={"RIGHT"} displayLink={next} post={nextPost} alt="Next post"  />
         </nav>
     </Layout>
   )

@@ -6,4 +6,4 @@
  * https://github.com/gatsbyjs/gatsby/issues/7810
  */
 module.exports.TOPICS = [{topicName:'travel', to:'/topic/travel', staticPage: false}, {topicName: 'cycling',  to:'/topic/cycling', staticPage: false}, {topicName: 'training', to:'/topic/training', staticPage: false},
-    {topicName:'meet-up', to:'/topic/meet-up', staticPage: false},{topicName: 'food', to: '/topic/food', staticPage: false}, {topicName: 'about me', to: '/topic/about', staticPage: true}];
+    {topicName:'meet-up', to:'/topic/meet-up', staticPage: false},{topicName: 'food', to: '/topic/food', staticPage: false}];
