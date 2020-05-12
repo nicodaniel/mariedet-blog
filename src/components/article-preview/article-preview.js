@@ -6,11 +6,11 @@ import "./article-topic.scss"
 
 export class ArticlePreview extends React.Component {
     render() {
-        const IMG_WIDTH = 223;
-        const IMG_HEIGHT = 167;
+        const IMG_WIDTH = 460;
+        const IMG_HEIGHT = 310;
         return (
             <Link to={this.props.articleKey}  style={{ boxShadow: `none` }}>
-                <article key={this.props.articleKey} style={{width: 223, marginRight: 20}} className="article-preview">
+                <article key={this.props.articleKey} style={{width: IMG_WIDTH, marginRight: 20}} className="article-preview">
                     <div className="image-container">
                         <Image
                             fixed={this.props.img}
