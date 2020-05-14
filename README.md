@@ -3,7 +3,7 @@
 </h1>
 
 
-This blog has been created using Gatsby and Netlify. The project follow the structure of the [gatsby-starter-blog](https://github.com/nicodaniel/gatsby-starter-blog).
+This blog has been created using Gatsby,  Netlify and FaunaDB. The project follow the structure of the [gatsby-starter-blog](https://github.com/nicodaniel/gatsby-starter-blog).
 
 ## 🚀 Quick start
 
@@ -22,7 +22,7 @@ This blog has been created using Gatsby and Netlify. The project follow the stru
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Open the `mariedet-blog` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🧐 What's inside?
 
@@ -36,7 +36,6 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── gatsby-browser.js
     ├── gatsby-config.js
     ├── gatsby-node.js
-    ├── gatsby-ssr.js
     ├── LICENSE
     ├── package-lock.json
     ├── package.json
@@ -56,15 +55,13 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+8.  **`LICENSE`**: Gatsby is licensed under the MIT license.
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+9. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+10. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
+11. **`README.md`**: A text file containing useful reference information about your project.
 
 ## 💫 Deploy
 
