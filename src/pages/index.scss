@@ -77,6 +77,10 @@ header.app-header{
     z-index: 2;
     background: white;
 
+    &.header-shadow {
+      box-shadow: rgba(0,0,0,.17) 0 0 6px;
+    }
+
     .header-nav.top-menu{
         .header-nav-container{
             a:last-child{

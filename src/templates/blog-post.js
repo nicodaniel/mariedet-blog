@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,6 +8,7 @@ import * as rehypeReact from "rehype-react";
 import {ImageViewer} from "../components/image-preview/image-viewer";
 import {MarkdownImages} from "../components/markdown/markdown-image";
 import {NavigationArrow} from "../components/article-nav/navigation-arrow";
+import {LikeCounter} from "../components/like-counter/counter";
 
 
 /**
@@ -96,7 +97,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <p className="article-date" style={{textAlign: "center",fontSize: '19px', fontWeight: 400, paddingTop: '40px'}}>
             {post.frontmatter.date}
           </p>
-            <p className="article-title" style={{textAlign: 'center', lineHeight: '38px', fontSize: '40px', paddingTop: '20px',  paddingBottom: '30px'}}>{post.frontmatter.title}</p>
+          <p className="article-title" style={{textAlign: 'center', lineHeight: '38px', fontSize: '40px', paddingTop: '20px',  paddingBottom: '30px'}}>{post.frontmatter.title}</p>
+          <LikeCounter articleId={post.fields.slug} />
         </header>
           <div style={{ marginBottom: '30px', marginLeft: '95px', marginRight:'95px'}}>
               <Image

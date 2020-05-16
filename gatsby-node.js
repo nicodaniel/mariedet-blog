@@ -3,6 +3,12 @@ const {createFilePath} = require(`gatsby-source-filesystem`)
 const {TOPICS} = require(`./constants`);
 
 
+/**
+ * Create blog pages
+ * @param graphql
+ * @param actions
+ * @return {Promise<void>}
+ */
 exports.createPages = async ({graphql, actions}) => {
     const {createPage} = actions
 
@@ -67,7 +73,8 @@ exports.createPages = async ({graphql, actions}) => {
             },
         })
     })
-}
+};
+
 
 exports.onCreateNode = ({node, actions, getNode}) => {
     const {createNodeField} = actions

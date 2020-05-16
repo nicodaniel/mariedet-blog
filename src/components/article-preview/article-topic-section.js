@@ -17,7 +17,7 @@ export class ArticleTopic extends React.Component{
                             <div className="article-preview-container" key={index}>
                                 <ArticlePreview
                                     articleKey={node.node.fields.slug}
-                                    img={node.node.frontmatter.preview.childImageSharp.fixed}
+                                    img={node.node.frontmatter.preview?.childImageSharp?.fixed}
                                     date={node.node.frontmatter.date}
                                     description={node.node.frontmatter.description}
                                 />

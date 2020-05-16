@@ -15,7 +15,7 @@ export class CarouselViewer extends React.Component {
                     this.props.data.map((d, index) => {
                         return <Link style={{color:'black'}} to={d.fields.slug} key={index}>
                                     <div key={index}>
-                                        <Image fluid={d.frontmatter.preview.childImageSharp.fluid} alt="carousel img" />
+                                        <Image fluid={d.frontmatter.preview?.childImageSharp?.fluid} alt="carousel img" />
                                         <div className="carousel-text-container">
                                         <span className="capital-letters article-topic font1"
                                               style={{fontSize: '10'}}>{d.frontmatter.topic}</span>

@@ -1,7 +1,10 @@
+const { createProxyMiddleware } = require("http-proxy-middleware");
+
+
 /* use dotenv to access env variable in gatsby-config.js */
 require("dotenv").config({
     path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
     siteMetadata: {
@@ -12,6 +15,17 @@ module.exports = {
         },
         description: `${process.env.GATSBY_SITE_DESCRIPTION}`,
         siteUrl: `${process.env.GATSBY_SITE_URL}`,
+    },
+    developMiddleware: app => {
+        app.use(
+            "/.netlify/functions/",
+            createProxyMiddleware ({
+                target: "http://localhost:9000",
+                pathRewrite: {
+                    "/.netlify/functions/": "",
+                },
+            })
+        )
     },
     plugins: [
         /* a plugin to generate a robots.txt */

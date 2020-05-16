@@ -1,0 +1,10 @@
+.scroll-indicator {
+  height: 2.5px;
+  width: 0%;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  transition: width 0.2s;
+}

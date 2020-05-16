@@ -1,0 +1,25 @@
+@import "../../helpers/variables";
+
+.like-counter-container{
+    cursor:pointer;
+    transition: $transition-color;
+    position: absolute;
+    top: 10px;
+    right: 104px;
+
+    &.liked{
+        color: $grey;
+    }
+
+    &:hover{
+        color: $grey;
+    }
+
+    .like-counter{
+      display: flex;
+    }
+
+    svg{
+      margin-right: 5px;
+    }
+}

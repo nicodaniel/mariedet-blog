@@ -13,6 +13,8 @@
     "@material-ui/styles": "^4.9.10",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
+    "es6-promise": "^4.2.8",
+    "faunadb": "^2.14.0",
     "gatsby": "^2.20.25",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-feed": "^2.4.3",
@@ -37,9 +39,11 @@
     "gatsby-source-instagram": "^0.7.0",
     "gatsby-transformer-remark": "^2.7.3",
     "gatsby-transformer-sharp": "^2.4.6",
+    "isomorphic-fetch": "^2.2.1",
     "json2mq": "^0.2.0",
     "material-auto-rotating-carousel": "^3.0.2",
     "netlify-cms-app": "^2.12.11",
+    "netlify-lambda": "^1.6.3",
     "node-sass": "^4.14.1",
     "prismjs": "^1.19.0",
     "react": "^16.12.0",
@@ -54,6 +58,7 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
+    "http-proxy-middleware": "^1.0.3",
     "prettier": "2.0.4"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -67,10 +72,12 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop",
+    "build": "gatsby build && netlify-lambda build src/functions",
+    "build:app": "gatsby build",
+    "build:lambda": "netlify-lambda build src/functions",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "run-p start:**",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
