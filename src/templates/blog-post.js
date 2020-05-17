@@ -103,7 +103,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <div style={{ marginBottom: '30px', marginLeft: '95px', marginRight:'95px'}}>
               <Image
                   style={{margin: 'auto'}}
-                  fluid={post.frontmatter.preview.childImageSharp.fluid}
+                  fluid={post.frontmatter.preview?.childImageSharp?.fluid}
                   alt={"post preview"}
               />
           </div>

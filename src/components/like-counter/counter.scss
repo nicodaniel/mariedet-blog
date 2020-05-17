@@ -1,11 +1,48 @@
 @import "../../helpers/variables";
 
+@keyframes fadein {
+  0% {
+    opacity:0;
+  }
+  75% {
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
 .like-counter-container{
     cursor:pointer;
-    transition: $transition-color;
     position: absolute;
-    top: 10px;
+    top: 50px;
     right: 104px;
+
+    .like-count{
+      visibility: hidden;
+    }
+
+    &.liked{
+        .like-count{
+            visibility: visible;
+        }
+    }
+
+    .trophee-icon.trophee-animation{
+      transform: translateY(-30px);
+      transition: transform 0.3s ease-in;
+      animation: fadein 1.5s;
+    }
+
+    .trophee-icon{
+        position: absolute;
+        left: 3px;
+        fill: gold;
+        font-size: 18px;
+        opacity: 0;
+        stroke-width: 1px;
+        stroke: black;
+    }
 
     &.liked{
         color: $grey;

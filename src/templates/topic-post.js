@@ -37,8 +37,8 @@ export const topicQuery = graphql`
             description
             preview {
               childImageSharp {
-                fixed(width: 300, height: 200) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 450, maxHeight: 310) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

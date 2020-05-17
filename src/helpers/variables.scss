@@ -8,7 +8,7 @@ $green: #009966;
 $transition-color: color 0.3s ease-out;
 $transition-visibility: visibility 0.5s linear 300ms, opacity 300ms;
 
-@-webkit-keyframes rotation {
+@keyframes rotation {
     from {
         -webkit-transform: rotate(0deg);
     }

@@ -96,8 +96,8 @@ export const pageQuery = graphql`
               topic
               preview {
                 childImageSharp {
-                  fixed(width: 450, height: 310) {
-                    ...GatsbyImageSharpFixed
+                  fluid(maxWidth: 450, maxHeight: 310) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

@@ -10,6 +10,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import "./side-panel-nav.scss";
 import { makeStyles } from '@material-ui/core/styles';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 /**
  * Navigation header component
@@ -78,7 +80,7 @@ export const ToolbarHeader = (props) => {
      * @return {null | ReactDOMElement}
      **/
     const toolbarSocialIcon = (displaySocialIcons) => {
-        return displaySocialIcons && <span className="social-icons"><a href="https://www.instagram.com/mariedet/"><InstagramIcon /></a></span>
+        return displaySocialIcons && <span className="social-icons"><a href="https://www.instagram.com/mariedet/"><Tooltip title="Instagram" arrow><InstagramIcon /></Tooltip></a></span>
     };
 
     /**
@@ -87,7 +89,7 @@ export const ToolbarHeader = (props) => {
      * @return {null | ReactDOMElement}
      **/
     const toolbarMailIcon = (displayMailIcon) => {
-        return displayMailIcon && <span className="social-icons"><a href="mailto:marie.detouche@hotmail.fr"><MailOutlineIcon /></a></span>
+        return displayMailIcon && <span className="social-icons"><a href="mailto:marie.detouche@hotmail.fr"><Tooltip title="Contact me by mail" arrow><MailOutlineIcon /></Tooltip></a></span>
     };
 
     return (

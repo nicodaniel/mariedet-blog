@@ -91,23 +91,18 @@ header.app-header{
 
 }
 
+::selection {
+  background-color: $green;
+  color: white;
+}
+
 main{
     top: 90px;
     position: relative;
-
-  .section-container::selection{
-    background-color: $orange;
-  }
-
     article{
       .section-container{
         p{
           text-align: justify;
-        }
-
-        p::selection {
-          background-color: $green;
-          color: white;
         }
 
         section{
@@ -123,8 +118,7 @@ footer.app-footer{
     height: 320px;
 
     .header-nav{
-        padding-top: 150px;
-        padding-bottom: 100px;
+      height: 250px;
     }
 
     .powered-by-footer{

@@ -1,23 +1,36 @@
 import Link from "gatsby-link";
 import {ArticlePreview} from "./article-preview";
 import React from "react";
+import {makeStyles} from "@material-ui/core/styles";
+import classNames from "classnames";
 
-export class ArticleTopic extends React.Component{
+export const ArticleTopic = (props) => {
 
-    render(){
-        return <div className="article-by-topics">
+    const styles = makeStyles((theme) => ({
+        layoutColumn: {
+            [theme.breakpoints.up('xs')]: {
+                flex: '0 0 33%',
+            },
+            [theme.breakpoints.down('xs')]: {
+                flex: '0 0 45%',
+            }
+        }
+    }));
+
+
+    return <div className="article-by-topics">
             <div className="article-by-topics-header">
-                <span className="capital-letters font1">{this.props.topic}</span>
-                {this.props.showLink?<Link className="link no-text-decoration box-shadow" to={`/topic/${this.props.topic}`} style={{float:"right"}}>See All in {this.props.topic}</Link>:null}
+                <span className="capital-letters font1">{props.topic}</span>
+                {props.showLink?<Link className="link no-text-decoration box-shadow" to={`/topic/${props.topic}`} style={{float:"right"}}>See All in {props.topic}</Link>:null}
             </div>
             <div className="article-by-topics-content">
                 <div className="article-list" style={{display: 'flex',flexWrap: 'wrap'}} key={'article-list'}>
-                    {this.props.posts.map((node, index) => {
+                    {props.posts.map((node, index) => {
                         return (
-                            <div className="article-preview-container" key={index}>
+                            <div className={classNames(styles().layoutColumn ,"article-preview-container")} key={index}>
                                 <ArticlePreview
                                     articleKey={node.node.fields.slug}
-                                    img={node.node.frontmatter.preview?.childImageSharp?.fixed}
+                                    img={node.node.frontmatter.preview?.childImageSharp?.fluid}
                                     date={node.node.frontmatter.date}
                                     description={node.node.frontmatter.description}
                                 />
@@ -27,5 +40,4 @@ export class ArticleTopic extends React.Component{
                 </div>
             </div>
         </div>
-    }
-}
+};
