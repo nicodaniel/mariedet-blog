@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import Image from "gatsby-image";
 import * as rehypeReact from "rehype-react";
 import {ImageViewer} from "../components/image-preview/image-viewer";
-import {MarkdownImages} from "../components/markdown/markdown-image";
+import {FullSizeMarkdownImages} from "../components/markdown/markdown-image-full-size";
 import {NavigationArrow} from "../components/article-nav/navigation-arrow";
 import {LikeCounter} from "../components/like-counter/counter";
 
@@ -85,7 +85,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
     const json = JSON.parse(JSON.stringify(post.htmlAst));
     const markdownProcessing = processMarkdown(json);
-
     return (
     <Layout location={location}>
       <SEO
@@ -100,22 +99,26 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <p className="article-title" style={{textAlign: 'center', lineHeight: '38px', fontSize: '40px', paddingTop: '20px',  paddingBottom: '30px'}}>{post.frontmatter.title}</p>
           <LikeCounter articleId={post.fields.slug} />
         </header>
-          <div style={{ marginBottom: '30px', marginLeft: '95px', marginRight:'95px'}}>
+          <div style={{ marginBottom: '30px'}}>
               <Image
-                  style={{margin: 'auto'}}
+                  style={{margin: 'auto', zIndex: '2'}}
                   fluid={post.frontmatter.preview?.childImageSharp?.fluid}
                   alt={"post preview"}
               />
           </div>
           <div className="section-container" style={{marginLeft: '65px', marginRight:'65px'}}>
               <section>
-                  {/*display article content*/}
+                  {/*display text only*/}
                   {renderAst(createAst(markdownProcessing.text))}
 
                   {/*display images*/}
-                  <MarkdownImages markdown={markdownProcessing} setShowImageViewer={setShowImageViewer} />
+                  {/*<MarkdownImages markdown={markdownProcessing} setShowImageViewer={setShowImageViewer} />*/}
 
               </section>
+
+              {/*display images at the bottom of article*/}
+              <FullSizeMarkdownImages markdown={markdownProcessing} setShowImageViewer={setShowImageViewer} />
+
               {/*display images in carousel on click*/}
               <ImageViewer markdownProcessing={markdownProcessing} show={showImageViewer} openViewer={setShowImageViewer}  />
 
@@ -192,7 +195,7 @@ export const pageQuery = graphql`
         topic
         preview {
           childImageSharp {
-            fluid(maxWidth: 1500) {
+            fluid(maxWidth: 1500, quality: 90) {
               ...GatsbyImageSharpFluid
             }
           }
