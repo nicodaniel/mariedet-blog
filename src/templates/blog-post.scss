@@ -1,0 +1,29 @@
+@keyframes topFadeOut {
+    0% {
+        position: absolute;
+        top: 55px;
+        opacity: 0;
+        text-align: center;
+    }
+
+    75% {
+        position: absolute;
+        top: 100px;
+        opacity: 1;
+    }
+}
+
+main > article > header{
+   height: 208px;
+}
+
+header p.article-title{
+    position: absolute;
+    animation: topFadeOut 3s;
+    width: 100%;
+    text-align: center;
+    line-height: 38px;
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}

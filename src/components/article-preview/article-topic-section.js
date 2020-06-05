@@ -20,7 +20,7 @@ export const ArticleTopic = (props) => {
 
     return <div className="article-by-topics">
             <div className="article-by-topics-header">
-                <span className="capital-letters font1">{props.topic}</span>
+                <span className="capital-letters font1">{props.topic.replace("/", "")}</span>
                 {props.showLink?<Link className="link no-text-decoration box-shadow" to={`/topic/${props.topic}`} style={{float:"right"}}>See All in {props.topic}</Link>:null}
             </div>
             <div className="article-by-topics-content">

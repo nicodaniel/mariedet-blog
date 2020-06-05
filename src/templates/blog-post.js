@@ -9,7 +9,7 @@ import {ImageViewer} from "../components/image-preview/image-viewer";
 import {FullSizeMarkdownImages} from "../components/markdown/markdown-image-full-size";
 import {NavigationArrow} from "../components/article-nav/navigation-arrow";
 import {LikeCounter} from "../components/like-counter/counter";
-
+import "./blog-post.scss";
 
 /**
  * Render paragraph from markdown
@@ -96,7 +96,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <p className="article-date" style={{textAlign: "center",fontSize: '19px', fontWeight: 400, paddingTop: '40px'}}>
             {post.frontmatter.date}
           </p>
-          <p className="article-title" style={{textAlign: 'center', lineHeight: '38px', fontSize: '40px', paddingTop: '20px',  paddingBottom: '30px'}}>{post.frontmatter.title}</p>
+          <p className="article-title">{post.frontmatter.title}</p>
           <LikeCounter articleId={post.fields.slug} />
         </header>
           <div style={{ marginBottom: '30px'}}>
