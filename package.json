@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "Mariedet blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "a blog powered by Gatsby and Markdown",
+  "version": "1.0.0",
+  "author": "nico.dnl1@gmail.com",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
@@ -43,6 +43,8 @@
     "json2mq": "^0.2.0",
     "material-auto-rotating-carousel": "^3.0.2",
     "netlify-cms-app": "^2.12.11",
+    "netlify-cms-ui-default": "^2.10.1",
+    "netlify-cms-widget-file": "^2.6.4",
     "netlify-lambda": "^1.6.3",
     "node-sass": "^4.14.1",
     "prismjs": "^1.19.0",
