@@ -1,0 +1,27 @@
+.img-preview{
+    display: flex;
+
+    .cell{
+        width: 100%;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    &.row{
+        height: 420px;
+        .cell{
+            flex: 1 0 40%;
+            padding: 2px;
+            height: 180px;
+        }
+    }
+
+    &.landscape{
+        flex-wrap: wrap;
+        .cell{
+            flex: 1 0 auto;
+        }
+    }
+}
