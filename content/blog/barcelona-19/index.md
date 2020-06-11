@@ -7,8 +7,6 @@ preview: img_5298.jpeg
 ---
 {% include gallery.html array="img-5465.jpeg" layout="landscape" margin="Default margin" position="undefined" %}
 
-{% include gallery.html array="img-5438.jpeg,thumb-img-0317-facetune-10-05-2019-18-55-13-1024.jpeg,img-5443.jpeg,img-5298.jpeg" layout="in a row" margin="Default margin" position="undefined" %}
-
 {% include gallery.html array="img-5428.jpeg,img-0292-facetune-27-06-2019-18-39-11.jpeg" layout="in a row" margin="Default margin" position="undefined" %}
 
 {% include gallery.html array="img-0370.jpeg" layout="landscape" margin="undefined" position="undefined" %}
