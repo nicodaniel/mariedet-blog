@@ -3,7 +3,7 @@ title: BARCELONA 19
 topic: travel
 date: 2020-05-26T16:54:35.584Z
 description: BARCELONA 19
-preview: img_5298.jpeg
+preview: img-5298.jpeg
 ---
 {% include gallery.html array="img-5465.jpeg" layout="landscape" margin="Default margin" position="undefined" %}
 
