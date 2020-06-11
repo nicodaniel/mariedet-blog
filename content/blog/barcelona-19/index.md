@@ -5,7 +5,7 @@ date: 2020-05-26T16:54:35.584Z
 description: BARCELONA 19
 preview: img-5298.jpeg
 ---
-{% include gallery.html array="img-5465.jpeg" layout="landscape" margin="Default margin" position="undefined" %}
+{% include gallery.html array="img-5465.jpeg" layout="landscape" margin="No margin" position="undefined" %}
 
 {% include gallery.html array="img-5438.jpeg,thumb-img-0317-facetune-10-05-2019-18-55-13-1024.jpeg,img-5443.jpeg,img-5298.jpeg" layout="in a row" margin="Default margin" position="undefined" %}
 
