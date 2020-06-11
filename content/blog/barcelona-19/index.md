@@ -7,7 +7,7 @@ preview: img_5298.jpeg
 ---
 {% include gallery.html array="img_5465.jpeg" layout="landscape" margin="Default margin" position="undefined" %}
 
-{% include gallery.html array="img_5438.jpeg,thumb\_img_0317\_facetune\_10-05-2019-18-55-13_1024.jpeg,img\_5443.jpeg,img\_5298.jpeg" layout="in a row" margin="Default margin" position="undefined" %}
+{% include gallery.html array="img\_5438.jpeg,thumb\_img_0317\_facetune\_10-05-2019-18-55-13_1024.jpeg,img\_5443.jpeg,img\_5298.jpeg" layout="in a row" margin="Default margin" position="undefined" %}
 
 {% include gallery.html array="img_5428.jpeg,img_0292_facetune_27-06-2019-18-39-11.jpeg" layout="in a row" margin="Default margin" position="undefined" %}
 
