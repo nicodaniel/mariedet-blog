@@ -5,19 +5,15 @@ date: 2020-05-26T17:09:46.819Z
 description: ITALY 19
 preview: 848d5947-3815-4f83-947d-8b100e124085.jpeg
 ---
-
 {% include gallery.html array="img-6652.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
 
 {% include gallery.html array="img-6425.jpeg,img-6357.jpeg" layout="in a row" margin="Default margin" position="undefined" size="undefined" %}
 
-{% include gallery.html array="img-6502.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
-
 {% include gallery.html array="img-6359.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
 
-{% include gallery.html array="img-6389.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
+{% include gallery.html array="img-6502.jpeg,img-6389.jpeg" layout="in a row" margin="Default margin" position="undefined" size="Small" %}
 
 {% include gallery.html array="img-6350.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
-
 
 {% include gallery.html array="img-6315.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
 
