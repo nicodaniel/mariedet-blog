@@ -37,17 +37,11 @@ preview: 848d5947-3815-4f83-947d-8b100e124085.jpeg
 
 {% include gallery.html array="img-6109.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
 
-{% include gallery.html array="img-2876.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
+{% include gallery.html array="img-2876.jpeg" layout="Landscape with effect" margin="Default margin" position="undefined" size="undefined" %}
 
-{% include gallery.html array="img-5987.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
-
-{% include gallery.html array="img-2125.jpg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %)
-
-{% include gallery.html array="img-2126.jpg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %)
+{% include gallery.html array="img-5987.jpeg,img-1953.jpeg" layout="in a row" margin="Default margin" position="undefined" size="undefined" %}
 
 {% include gallery.html array="img-1941.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
-
-{% include gallery.html array="img-1953.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
 
 {% include gallery.html array="img-1519.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
 
