@@ -25,9 +25,11 @@ preview: 848d5947-3815-4f83-947d-8b100e124085.jpeg
 
 {% include gallery.html array="img-6291.jpeg" layout="in a row" margin="Default margin" position="Vertical" size="Small" %}
 
+{% include gallery.html array="img-6112.jpeg" layout="in a row" margin="Default margin" position="Vertical" size="Small" %}
+
 {% include gallery.html array="img-6196.jpeg" layout="in a row" margin="Default margin" position="Right" size="Default size" %}
 
-{% include gallery.html array="img-6112.jpeg" layout="in a row" margin="Default margin" position="Vertical" size="Small" %}
+{% include gallery.html array="img-1941.jpeg,img-1703.jpeg,img-1519.jpeg" layout="in a row" margin="Default margin" position="undefined" size="Small" %}
 
 {% include gallery.html array="img-6210.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
 
@@ -41,16 +43,10 @@ preview: 848d5947-3815-4f83-947d-8b100e124085.jpeg
 
 {% include gallery.html array="img-5987.jpeg,img-1953.jpeg" layout="in a row" margin="Default margin" position="undefined" size="undefined" %}
 
-{% include gallery.html array="img-1941.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
-
-{% include gallery.html array="img-1519.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
-
-{% include gallery.html array="img-1703.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
-
 {% include gallery.html array="img-1416.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
 
-{% include gallery.html array="img-1478-facetune-09-08-2019-18-48-51.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
+{% include gallery.html array="img-1478-facetune-09-08-2019-18-48-51.jpeg" layout="in a row" margin="Default margin" position="undefined" size="undefined" %}
 
-{% include gallery.html array="adbf78b5-9246-47f3-8b44-6c5fa10bb295.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
+{% include gallery.html array="adbf78b5-9246-47f3-8b44-6c5fa10bb295.jpeg" layout="in a row" margin="Default margin" position="Horizontal" size="undefined" %}
 
 {% include gallery.html array="img-1411.jpeg" layout="landscape" margin="Default margin" position="undefined" size="undefined" %}
