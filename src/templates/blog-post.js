@@ -10,6 +10,8 @@ import {FullSizeMarkdownImages} from "../components/markdown/markdown-image-full
 import {NavigationArrow} from "../components/article-nav/navigation-arrow";
 import {LikeCounter} from "../components/like-counter/counter";
 import "./blog-post.scss";
+import {GALLERY_WIDGET_PATTERN, renderImageLayout} from "../cms/image-widget";
+import "../cms/cms.scss";
 
 /**
  * Render paragraph from markdown
@@ -25,6 +27,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
   const nextPost = data.nextPost;
   const previousPost = data.previousPost;
+  const blogImageSrc = data.allFile.edges.map(img => ({name: `${img.node.name}.${img.node.extension}`, src: img.node.childImageSharp?.fluid?.src}));
   const { previous, next } = pageContext;
 
   const [showImageViewer, setShowImageViewer] = React.useState({show: false, index: 0});
@@ -66,22 +69,31 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     /**
      * Process markdown json and split text and images to process them differently...
      * @param json
-     * @return {{img: [], text: []}}
+     * @return {{img: [], text: [], galleryMarkdown: []}}
      */
   const processMarkdown = (json) => {
       const markdownImages = [];
       const markdownText = [];
+      const markdownImagesGallery = [];
       json.children.filter(child => child.type === "element").forEach(element => {
           const img = filterImages(element);
           if(img != null){
               markdownImages.push(img);
           }else{
-              markdownText.push(element);
+              const value = element.children[0]?.value?.replace(/”/g, "\"")?.replace(/“/g, "\"");
+              const match = GALLERY_WIDGET_PATTERN.exec(value);
+              if(value && match){
+                  const images = match[1]?.split(",");
+                  const layout = match[2];
+                  const position = match[3];
+                  markdownImagesGallery.push({images, layout, position})
+              }else{
+                  markdownText.push(element);
+              }
           }
       });
-      return {img : markdownImages, text: markdownText};
+      return {img : markdownImages, text: markdownText, galleryMarkdown: markdownImagesGallery};
   };
-
 
     const json = JSON.parse(JSON.stringify(post.htmlAst));
     const markdownProcessing = processMarkdown(json);
@@ -99,17 +111,25 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <p className="article-title">{post.frontmatter.title}</p>
           <LikeCounter articleId={post.fields.slug} />
         </header>
-          <div style={{ marginBottom: '30px'}}>
+          <div style={{ marginBottom: '60px'}}>
               <Image
                   style={{margin: 'auto', zIndex: '2'}}
                   fluid={post.frontmatter.preview?.childImageSharp?.fluid}
                   alt={"post preview"}
               />
           </div>
-          <div className="section-container" style={{marginLeft: '65px', marginRight:'65px'}}>
+          <div className="section-container" /*style={{marginLeft: '65px', marginRight:'65px'}}*/>
+              {/*<section dangerouslySetInnerHTML={{ __html: post.html }} />*/}
               <section>
                   {/*display text only*/}
                   {renderAst(createAst(markdownProcessing.text))}
+
+                  {markdownProcessing.galleryMarkdown.map(gallery => {
+                      const images = gallery.images.map(image => {
+                          return blogImageSrc.find(obj => obj.name === image)?.src
+                      });
+                      return renderImageLayout(gallery.layout, gallery.position, gallery.margin, gallery.size, gallery.end, images);
+                  })}
 
                   {/*display images*/}
                   {/*<MarkdownImages markdown={markdownProcessing} setShowImageViewer={setShowImageViewer} />*/}
@@ -140,7 +160,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $nextSlug: String, $previousSlug: String) {
+  query BlogPostBySlug($slug: String!, $articleName: String!, $nextSlug: String, $previousSlug: String) {
     site {
       siteMetadata {
         title
@@ -175,6 +195,19 @@ export const pageQuery = graphql`
           childImageSharp {
             fixed(width: 70) {
               ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+    allFile(filter: {extension: {regex: "/(jpg)|(jpeg)|(png)/"}, relativeDirectory: {eq: $articleName}}) {
+      edges {
+        node {
+          name
+          extension
+          childImageSharp {
+            fluid(maxHeight: 800, quality: 90) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

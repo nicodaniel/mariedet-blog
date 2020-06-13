@@ -1,0 +1,12 @@
+.img-preview{
+    &.landscape{
+        .cell{
+            height: 700px;
+            max-height: 700px;
+
+            img {
+                max-height: 700px;
+            }
+        }
+    }
+}

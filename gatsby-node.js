@@ -66,6 +66,8 @@ exports.createPages = async ({graphql, actions}) => {
             component: blogPost,
             context: {
                 slug: post.node.fields.slug,
+                /* TODO maybe simplistic */
+                articleName: post.node.fields.slug.replace('/', '').replace('/', ''),
                 nextSlug: next && next.fields.slug?next.fields.slug:"",
                 previousSlug: previous && previous.fields.slug?previous.fields.slug:"",
                 previous,

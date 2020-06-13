@@ -1,6 +1,10 @@
 .img-preview{
     display: flex;
 
+    &.with-margin{
+        margin-bottom: 60px;
+    }
+
     .cell{
         width: 100%;
 
@@ -9,19 +13,77 @@
         }
     }
 
+    /* ROW VIEW */
     &.row{
-        height: 420px;
+        width: 83%;
+        margin-left: auto;
+        margin-right: auto;
+
+        &.small{
+            height: 280px;
+            .cell{
+                width: 420px;
+            }
+        }
+
+        &.horizontal{
+            height: 420px;
+        }
+
+        &.vertical{
+            height: 720px;
+        }
+
+        &.right-position{
+            justify-content: flex-end;
+        }
+
         .cell{
-            flex: 1 0 40%;
-            padding: 2px;
-            height: 180px;
+            padding: 5px;
+
+            //if horizontal
+            //height: 180px;
+
+            .cell-image{
+                margin: 0;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     }
 
-    &.landscape{
-        flex-wrap: wrap;
+    &.row-small {
+        width: 83%;
+        margin: auto;
+
         .cell{
-            flex: 1 0 auto;
+            padding: 5px;
+            flex: 0 0 33%;
         }
     }
+
+    /* LANDSCAPE VIEW */
+    &.landscape{
+        flex-wrap: wrap;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        .cell{
+            flex: 1 0 auto;
+
+            img{
+                margin: 0;
+                //16/9 image size
+                //width: 100vw;
+                //height: 56.25vw;
+            }
+        }
+    }
+
+    /* LANDSCAPE WITH PARALLAX VIEW */
+    &.landscape-with-effect{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
+
+/* netlify preview style */

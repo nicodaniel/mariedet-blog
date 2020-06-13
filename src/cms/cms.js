@@ -6,6 +6,7 @@
 import CMS from "netlify-cms-app"
 import React from "react";
 import "./cms.scss";
+import "./netlify-preview.scss";
 import "../css/parallax-image.scss";
 import {GalleryWidget} from "./image-widget";
 

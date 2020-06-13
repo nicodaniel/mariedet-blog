@@ -11,6 +11,10 @@
         top: 100px;
         opacity: 1;
     }
+
+    100%{
+        top: 100px;
+    }
 }
 
 main > article > header{
@@ -20,6 +24,7 @@ main > article > header{
 header p.article-title{
     position: absolute;
     animation: topFadeOut 3s;
+    animation-timing-function: linear;
     width: 100%;
     text-align: center;
     line-height: 38px;

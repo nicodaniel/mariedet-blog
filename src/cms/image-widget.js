@@ -1,25 +1,64 @@
 import React from "react";
+import classNames from "classnames";
+import Alert from '@material-ui/lab/Alert';
 
-const layoutENUM = {
+
+export const layoutENUM = {
     landscape : 'landscape',
     landscape_with_effect : 'Landscape with effect',
-    row: 'in a row'
+    row: 'in a row',
 };
 
 const positionENUM = {
-    right: "Right",
-    left: "Left",
     vertical: "Vertical",
     horizontal: "Horizontal"
 };
 
 const marginENUM = {
-    noMargin: "No margin"
+    noMargin: "No margin",
+    margin: "Default margin"
 };
 
-const LAYOUT = [layoutENUM.landscape, layoutENUM.landscape_with_effect, layoutENUM.row];
-const POSITION = [positionENUM.right, positionENUM.left, positionENUM.vertical, positionENUM.horizontal];
-const MARGIN = [marginENUM.noMargin];
+const sizeENUM = {
+    normal: "Default size",
+    small : "Small"
+};
+
+const LAYOUT = [layoutENUM.landscape, layoutENUM.landscape_with_effect, layoutENUM.row, layoutENUM.row_small];
+const POSITION = [positionENUM.vertical, positionENUM.horizontal];
+const MARGIN = [marginENUM.noMargin, marginENUM.margin];
+const SIZE = [sizeENUM.normal, sizeENUM.small];
+
+export const GALLERY_WIDGET_PATTERN = /\{\% include gallery.html array="(\S+)" layout="(.*)" margin="(.*)" position="(.*)" size="(.*)" end="(.*)" \%\}/;
+
+/**
+ * Render images based on layout
+ * @param layout
+ * @param imageSrc
+ * @return {*}
+ */
+export const renderImageLayout = (layout, position, margin, size, end, imageSrc) => {
+    const layoutMargin = margin ? margin : marginENUM.margin;
+    switch(layout) {
+        case(layoutENUM.landscape):
+            return <div className={classNames("img-preview landscape", {"with-margin": layoutMargin === marginENUM.margin})}>{renderImage(imageSrc)}</div>;
+        case(layoutENUM.landscape_with_effect):
+            return <div className={classNames("img-preview landscape-with-effect", {"with-margin": layoutMargin === marginENUM.margin})}>{imageSrc.map(src => {
+                return <img alt="" className="parallax-img" style={{backgroundImage: `url(${src})`, width: "100%", height: "500px"}} />
+            })}</div>;
+        case(layoutENUM.row):
+            return <div className={classNames("img-preview row", {"with-margin": layoutMargin === marginENUM.margin},
+                {"vertical": position === positionENUM.vertical},
+                {"small": size === sizeENUM.small},
+                {"right-position": end === "true"})}>{renderImage(imageSrc)}</div>;
+        default:
+            console.warn(`This layout is not available... ${layout}`);
+    }
+};
+
+const renderImage = (imageSrc) => {
+    return imageSrc.map((src, index) => <div className="cell"><img className="cell-image" src={src} alt={''} title={''} /></div>)
+};
 
 export const GalleryWidget = () => {
     return {
@@ -27,8 +66,11 @@ export const GalleryWidget = () => {
         label: 'Gallery',
         fields: [{label: 'Gallery', name: 'images', widget: 'list', field: {label: 'Image', name: 'image',  widget: 'image'}},
             { name: "layout", label: "Layout", options: LAYOUT, widget: "select"},
-            { name: "positioning", label: "Positioning", options: POSITION, widget: "select"}],
-        pattern: /\{\% include gallery.html array="(\S+)" layout="(.*)" position="(.*)" \%\}/,
+            { name: "margin", label: "Margin", options: MARGIN, widget: "select"},
+            { name: "position", label: "Positioning", options: POSITION, widget: "select"},
+            { name: "end", label: "Flex end", options: ["true", "false"], widget: "select", default: "false"},
+            { name: "size", label: "Image size", options: SIZE, widget: "select"}],
+        pattern: GALLERY_WIDGET_PATTERN,
         fromBlock: function(match) {
             const images = match[1]
                 .split(',')
@@ -37,16 +79,24 @@ export const GalleryWidget = () => {
             return {
                 images: images,
                 layout: match[2],
-                position: match[3]
+                margin: match[3],
+                position: match[4],
+                size: match[5],
+                end: match[6]
             };
         },
         toBlock: function(obj) {
             const images = obj.images || [];
-            return (
-                '{% include gallery.html array="' + images.map(entry => entry).join(',') + '" layout="'+obj.layout+'" position="'+obj.positioning+'" %}'
-            );
+            if(images.some(entry => entry?.image ? entry.image.includes('_'):entry.includes('_'))){
+                console.alert('Images contains \'_\' characters that are not allowed...');
+                return <Alert severity="error">This is an error alert — check it out!</Alert>;
+            }else{
+                return (
+                    '{% include gallery.html array="' + images.map(entry => entry?.image ? entry.image:entry).join(',') + '" layout="'+obj.layout+'" margin="'+obj.margin+'" position="'+obj.position+'" size="'+obj.size+'" end="'+obj.end+'" %}'
+                );
+            }
         },
-        toPreview: ({ images, layout, position }, getAsset, fields) => {
+        toPreview: ({ images, layout, margin, position, size, end }, getAsset, fields) => {
             const listField = fields?.find(f => {
                 return f.get('widget') === 'list'
             });
@@ -54,20 +104,11 @@ export const GalleryWidget = () => {
                 const imgUrl = img.image;
                 return getAsset(imgUrl, listField).url;
             });
+            if(imageSrc.some(src => src.includes('_'))){
+                return <Alert severity="error">This is an error alert — check it out!</Alert>;
+            }
             if(imageSrc){
-                const imagesDOM = imageSrc.map((src, index) => <div className="cell"><img className="cell-image" src={src} alt={''} title={''} /></div>)
-                switch(layout) {
-                    case(layoutENUM.landscape):
-                        return <div style={{padding: "4px"}} className="img-preview landscape">{imagesDOM}</div>;
-                    case(layoutENUM.landscape_with_effect):
-                        return <div style={{padding: "4px"}} className="img-preview landscape-with-effect">{imageSrc.map(src => {
-                            return <img alt="" className="parallax-img" style={{backgroundImage: `url(${src})`, width: "100%", height: "500px"}} />
-                        })}</div>;
-                    case(layoutENUM.row):
-                        return <div className="img-preview row">{imagesDOM}</div>;
-                    default:
-                        console.warn(`This layout is not available... ${layout}`);
-                }
+                return renderImageLayout(layout, position, margin, size, end, imageSrc);
             }
             return null;
         }

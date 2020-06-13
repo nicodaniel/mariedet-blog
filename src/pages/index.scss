@@ -96,6 +96,12 @@ header.app-header{
   color: white;
 }
 
+%article-text-margin{
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 main{
     top: 90px;
     position: relative;
@@ -103,12 +109,14 @@ main{
       .section-container{
         p{
           text-align: justify;
+          @extend %article-text-margin;
+        }
+
+        li{
+            @extend %article-text-margin;
         }
 
         section{
-          max-width: 700px;
-          margin-left: auto;
-          margin-right: auto;
         }
       }
     }
