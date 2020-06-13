@@ -25,9 +25,9 @@ preview: 848d5947-3815-4f83-947d-8b100e124085.jpeg
 
 {% include gallery.html array="img-6291.jpeg" layout="in a row" margin="Default margin" position="Vertical" size="Small" end="false" %}
 
-{% include gallery.html array="img-6112.jpeg" layout="in a row" margin="Default margin" position="Vertical" size="Small" end="false" %}
+{% include gallery.html array="img-6112.jpeg" layout="in a row" margin="Default margin" position="Vertical" size="Small" end="true" %}
 
-{% include gallery.html array="img-6196.jpeg" layout="in a row" margin="Default margin" position="Right" size="Default size" end="false" %}
+{% include gallery.html array="img-6196.jpeg" layout="in a row" margin="Default margin" position="Vertical" size="Default size" end="false" %}
 
 {% include gallery.html array="img-1941.jpeg,img-1703.jpeg,img-1519.jpeg" layout="in a row" margin="Default margin" position="undefined" size="Small" end="false" %}
 
