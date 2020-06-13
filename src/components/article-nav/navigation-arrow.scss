@@ -19,7 +19,6 @@
     }
 
     &:hover {
-        width: 150px;
         color: black;
 
         .nav-more-info {
@@ -28,13 +27,13 @@
 
         &.arrow-right {
             .nav-more-info {
-                transform: translateX(-150px);
+                transform: translateX(-300px);
             }
         }
 
         &.arrow-left {
             .nav-more-info{
-                transform: translateX(270px);
+                transform: translateX(300px);
             }
         }
     }
@@ -55,6 +54,7 @@
         display: flex;
         background: white;
         margin-top: -70px;
+        margin-left: 50px;
     }
 
     &.arrow-left{
@@ -63,7 +63,7 @@
         }
 
         .nav-more-info{
-            margin-left: -270px;
+            margin-left: -300px;
             span.article-title{
                 order:2;
             }

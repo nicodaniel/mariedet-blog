@@ -22,7 +22,7 @@
         &.small{
             height: 280px;
             .cell{
-                width: 420px;
+                width: 45%;
             }
         }
 
@@ -38,6 +38,10 @@
             justify-content: flex-end;
         }
 
+        &.center-position{
+            justify-content: center;
+        }
+
         .cell{
             padding: 5px;
 
@@ -49,16 +53,6 @@
                 height: 100%;
                 object-fit: cover;
             }
-        }
-    }
-
-    &.row-small {
-        width: 83%;
-        margin: auto;
-
-        .cell{
-            padding: 5px;
-            flex: 0 0 33%;
         }
     }
 

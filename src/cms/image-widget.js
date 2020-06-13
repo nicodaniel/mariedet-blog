@@ -24,7 +24,7 @@ const sizeENUM = {
     small : "Small"
 };
 
-const LAYOUT = [layoutENUM.landscape, layoutENUM.landscape_with_effect, layoutENUM.row, layoutENUM.row_small];
+const LAYOUT = [layoutENUM.landscape, layoutENUM.landscape_with_effect, layoutENUM.row];
 const POSITION = [positionENUM.vertical, positionENUM.horizontal];
 const MARGIN = [marginENUM.noMargin, marginENUM.margin];
 const SIZE = [sizeENUM.normal, sizeENUM.small];
@@ -44,13 +44,14 @@ export const renderImageLayout = (layout, position, margin, size, end, imageSrc)
             return <div className={classNames("img-preview landscape", {"with-margin": layoutMargin === marginENUM.margin})}>{renderImage(imageSrc)}</div>;
         case(layoutENUM.landscape_with_effect):
             return <div className={classNames("img-preview landscape-with-effect", {"with-margin": layoutMargin === marginENUM.margin})}>{imageSrc.map(src => {
-                return <img alt="" className="parallax-img" style={{backgroundImage: `url(${src})`, width: "100%", height: "500px"}} />
+                return <img alt="" className="parallax-img" style={{backgroundImage: `url(${src})`, width: "100%", height: "550px"}} />
             })}</div>;
         case(layoutENUM.row):
             return <div className={classNames("img-preview row", {"with-margin": layoutMargin === marginENUM.margin},
                 {"vertical": position === positionENUM.vertical},
                 {"small": size === sizeENUM.small},
-                {"right-position": end === "true"})}>{renderImage(imageSrc)}</div>;
+                {"right-position": end === "end"},
+                {"center-position": end === "center"})}>{renderImage(imageSrc)}</div>;
         default:
             console.warn(`This layout is not available... ${layout}`);
     }
@@ -67,8 +68,8 @@ export const GalleryWidget = () => {
         fields: [{label: 'Gallery', name: 'images', widget: 'list', field: {label: 'Image', name: 'image',  widget: 'image'}},
             { name: "layout", label: "Layout", options: LAYOUT, widget: "select"},
             { name: "margin", label: "Margin", options: MARGIN, widget: "select"},
-            { name: "position", label: "Positioning", options: POSITION, widget: "select"},
-            { name: "end", label: "Flex end", options: ["true", "false"], widget: "select", default: "false"},
+            { name: "position", label: "Direction", options: POSITION, widget: "select"},
+            { name: "end", label: "Position", options: ["end", "normal", "center"], widget: "select", default: "normal"},
             { name: "size", label: "Image size", options: SIZE, widget: "select"}],
         pattern: GALLERY_WIDGET_PATTERN,
         fromBlock: function(match) {

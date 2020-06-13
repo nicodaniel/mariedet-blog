@@ -85,8 +85,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               if(value && match){
                   const images = match[1]?.split(",");
                   const layout = match[2];
-                  const position = match[3];
-                  markdownImagesGallery.push({images, layout, position})
+                  const margin = match[3];
+                  const position = match[4];
+                  const size = match[5];
+                  const end = match[6];
+                  markdownImagesGallery.push({images, layout, position, margin, size, end})
               }else{
                   markdownText.push(element);
               }
@@ -206,7 +209,7 @@ export const pageQuery = graphql`
           name
           extension
           childImageSharp {
-            fluid(maxHeight: 800, quality: 90) {
+            fluid(maxWidth: 1500, quality: 90) {
               ...GatsbyImageSharpFluid
             }
           }
