@@ -76,6 +76,7 @@ header.app-header{
     width: 100%;
     z-index: 2;
     background: white;
+    top: 0;
 
     &.header-shadow {
       box-shadow: rgba(0,0,0,.17) 0 0 6px;
@@ -103,8 +104,7 @@ header.app-header{
 }
 
 main{
-    top: 90px;
-    position: relative;
+    margin-top: 90px;
     article{
       .section-container{
         p{

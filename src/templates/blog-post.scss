@@ -1,19 +1,19 @@
 @keyframes topFadeOut {
     0% {
         position: absolute;
-        top: 55px;
+        top: 140px;
         opacity: 0;
         text-align: center;
     }
 
     75% {
         position: absolute;
-        top: 100px;
+        top: 191px;
         opacity: 1;
     }
 
     100%{
-        top: 100px;
+        top: 191px;
     }
 }
 
