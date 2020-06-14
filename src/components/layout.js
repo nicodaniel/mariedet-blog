@@ -45,7 +45,7 @@ const Layout = ({ location, children }) => {
           </header>
           <main>{children}</main>
           <footer className="app-footer">
-              <ToolbarHeader responsive={false} topics={[{topicName:'about', to: '/topic/about'}, {topicName:'contact', to: '/topic/contact'}]} centered={true} displaySocialIcons={true} displayMailIcon={true} />
+              <ToolbarHeader responsive={false} topics={[{topicName:'about', to: '/topic/about'}/*, {topicName:'contact', to: '/topic/contact'}*/]} centered={true} displaySocialIcons={true} displayMailIcon={true} />
               <div className="powered-by-footer">
                   Powered by <a href="https://github.com/nicodaniel">ndaniel</a>
               </div>
