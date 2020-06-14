@@ -12,6 +12,7 @@ import {LikeCounter} from "../components/like-counter/counter";
 import "./blog-post.scss";
 import {GALLERY_WIDGET_PATTERN, renderImageLayout} from "../cms/image-widget";
 import "../cms/cms.scss";
+import {ScrollTop} from "../components/back-top/scrollTop";
 
 /**
  * Render paragraph from markdown
@@ -144,6 +145,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
               {/*display images in carousel on click*/}
               <ImageViewer markdownProcessing={markdownProcessing} show={showImageViewer} openViewer={setShowImageViewer}  />
+
+              <ScrollTop />
 
               {/*footer delimiter*/}
               <hr style={{width: '75%', margin: 'auto', height:'0.5px', marginTop: '70px', marginBottom: '70px'}}/>
