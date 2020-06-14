@@ -1,5 +1,5 @@
 ---
-title: MALLORCA 2019
+title: MALLORCA FEV 2019
 topic: travel
 date: 2020-05-08T16:38:36.469Z
 description: Mallorca 2019
