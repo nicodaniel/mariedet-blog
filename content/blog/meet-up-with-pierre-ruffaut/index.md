@@ -56,7 +56,7 @@ I have to explore more routes so maybe my favorite route will change soon !
 
 **I saw that you do also triathlon, what push you to do this sport ? I do triathlon also and it’s quite hard to manage triathlon training + cycling training at the same time, how do you do ?**
 
-I wanted to discover new sports, explore new sensations and reach new goals. A desire to change my routine by practicing new sports like swimming and running. In 2019, I wanted to perform in cycling race and long distance triathlon. With my full time job and my cycling training it was hard to find time to do running and swimming so I didn’t do the 70.3 Vichy. But I did a Half triathlon in September 2019 and I liked it. So in 2020, my goal was to do more triathlon race but with the covid-19 my plan has changed. But whatever, I enjoy this time to be a good swimmer by swimming in the Léman lack.
+I wanted to discover new sports, explore new sensations and reach new goals. A desire to change my routine by practicing new sports like swimming and running. In 2019, I wanted to perform in cycling race and long distance triathlon. With my full time job and my cycling training it was hard to find time to do running and swimming so I didn’t do the 70.3 Vichy. But I did a Half triathlon in September 2019 and I liked it. So in 2020, my goal was to do more triathlon race but with the covid-19 my plan has changed. But whatever, I enjoy this time to learn being a better swimmer by swimming in the Léman lack.
 
 [ruffaut cycling system](https://ruffaut-cycling-system.com)
 
