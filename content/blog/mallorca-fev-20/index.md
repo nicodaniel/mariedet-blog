@@ -16,3 +16,7 @@ preview: 4ab9cdee-7ac2-4adc-84a1-e08d7f3d8cc2.jpg
 {% include gallery.html array="58869113-6ce4-481e-9186-42b2a34b618a.jpg,45081c37-9912-4df4-964c-d40f68121c06.jpg" layout="in a row" margin="No margin" position="Vertical" size="Default size" end="normal" %}
 
 {% include gallery.html array="cee96d25-3af0-464e-9839-cdd647b38911.jpg,035a14a2-6e5b-40e5-bfce-23db031d50e2.jpg" layout="in a row" margin="No margin" position="Vertical" size="undefined" end="normal" %}
+
+
+
+{% include gallery.html array="" layout="undefined" margin="undefined" position="undefined" size="undefined" end="normal" %}
