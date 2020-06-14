@@ -3,11 +3,11 @@ title: MALLORCA FEB 2019
 topic: travel
 date: 2020-05-08T16:38:36.469Z
 description: MALLORCA FEB 2019
-preview: img-4277.jpeg
+preview: img-4225.jpeg
 ---
 Mallorca - February 2019 
 
-![](img-9668-facetune-11-03-2019-19-40-44.jpg)
+![](72c54103-1167-46dd-b325-a1c221a6ac82.jpeg)
 
 ![](img-9379.jpeg)
 
@@ -27,7 +27,7 @@ Mallorca - February 2019
 
 ![](img-4302.jpeg)
 
-![](img-4225.jpeg)
+![]()
 
 ![](img-4254.jpg)
 
