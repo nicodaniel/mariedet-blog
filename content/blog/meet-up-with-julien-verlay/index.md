@@ -44,8 +44,10 @@ Thanks Julien.
 [Instagram Croaam](http://www.instagram.com/croaam)\
 [Son blog](http://lateteetlesjambes.fr/)
 
-![](post9.jpg)
+{% include gallery.html array="post8.jpg" layout="landscape" margin="Default margin" position="Horizontal" size="undefined" end="center" %}
 
-![](post8.jpg)
 
-![](post7.jpg)
+
+
+
+{% include gallery.html array="post7.jpg,post9.jpg" layout="in a row" margin="No margin" position="Horizontal" size="Small" end="center" %}
