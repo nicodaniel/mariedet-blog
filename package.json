@@ -47,7 +47,7 @@
     "netlify-cms-ui-default": "^2.10.1",
     "netlify-cms-widget-file": "^2.6.4",
     "netlify-lambda": "^1.6.3",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "prismjs": "^1.19.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
