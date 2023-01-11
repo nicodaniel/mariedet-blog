@@ -38,7 +38,7 @@
     "gatsby-remark-smartypants": "^2.2.3",
     "gatsby-source-filesystem": "^2.2.4",
     "gatsby-source-instagram": "^0.8.0-beta.0",
-    "gatsby-transformer-remark": "^2.7.3",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.4.6",
     "isomorphic-fetch": "^2.2.1",
     "json2mq": "^0.2.0",
